@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DreamHR</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+         Sidebar 
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">🌸</span>
+                    <h2>DreamHR</h2>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="overview">
+                    <span class="nav-icon">📊</span>
+                    <span>Overview</span>
+                </a>
+                <a href="#" class="nav-item" data-section="employees">
+                    <span class="nav-icon">👥</span>
+                    <span>Employees</span>
+                </a>
+                <a href="#" class="nav-item" data-section="attendance">
+                    <span class="nav-icon">📅</span>
+                    <span>Attendance</span>
+                </a>
+                <a href="#" class="nav-item" data-section="payroll">
+                    <span class="nav-icon">💰</span>
+                    <span>Payroll</span>
+                </a>
+                <a href="#" class="nav-item" data-section="reports">
+                    <span class="nav-icon">📈</span>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="nav-item" data-section="settings">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-details">
+                        <span class="user-name" id="userName">User</span>
+                        <span class="user-role" id="userRole">Employee</span>
+                    </div>
+                </div>
+                <button class="logout-btn" id="logoutBtn">
+                    <span>🚪</span>
+                    Logout
+                </button>
+            </div>
+        </aside>
+        
+         Main Content 
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <h1 id="pageTitle">Dashboard Overview</h1>
+                    <p id="pageSubtitle">Welcome back! Here's what's happening today.</p>
+                </div>
+                <div class="header-right">
+                    <button class="notification-btn">
+                        <span>🔔</span>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="date-display" id="currentDate"></div>
+                </div>
+            </header>
+            
+             Overview Section 
+            <section id="overview-section" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-content">
+                            <h3>Total Employees</h3>
+                            <p class="stat-number">156</p>
+                            <span class="stat-change positive">+12 this month</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <h3>Present Today</h3>
+                            <p class="stat-number">142</p>
+                            <span class="stat-change">91% attendance</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏠</div>
+                        <div class="stat-content">
+                            <h3>Remote Workers</h3>
+                            <p class="stat-number">28</p>
+                            <span class="stat-change">18% of workforce</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📋</div>
+                        <div class="stat-content">
+                            <h3>Pending Tasks</h3>
+                            <p class="stat-number">7</p>
+                            <span class="stat-change negative">2 overdue</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Recent Activities</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <span class="activity-icon">👤</span>
+                                <div class="activity-content">
+                                    <p>New employee Sarah Johnson joined Marketing</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-icon">📅</span>
+                                <div class="activity-content">
+                                    <p>Team meeting scheduled for tomorrow 2 PM</p>
+                                    <span class="activity-time">4 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-icon">💰</span>
+                                <div class="activity-content">
+                                    <p>Payroll processed for March 2024</p>
+                                    <span class="activity-time">1 day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3>Quick Actions</h3>
+                        <div class="quick-actions">
+                            <button class="action-btn">
+                                <span>➕</span>
+                                Add Employee
+                            </button>
+                            <button class="action-btn">
+                                <span>📊</span>
+                                Generate Report
+                            </button>
+                            <button class="action-btn">
+                                <span>📧</span>
+                                Send Announcement
+                            </button>
+                            <button class="action-btn">
+                                <span>⏰</span>
+                                Schedule Meeting
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+             Employees Section 
+            <section id="employees-section" class="content-section">
+                <div class="section-header">
+                    <h2>Employee Management</h2>
+                    <button class="btn btn-primary" id="addEmployeeBtn">
+                        <span>➕</span>
+                        Add Employee
+                    </button>
+                </div>
+                
+                <div class="employee-filters">
+                    <input type="text" placeholder="Search employees..." class="search-input" id="employeeSearch">
+                    <select class="filter-select" id="departmentFilter">
+                        <option value="">All Departments</option>
+                        <option value="hr">Human Resources</option>
+                        <option value="it">Information Technology</option>
+                        <option value="finance">Finance</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="sales">Sales</option>
+                        <option value="operations">Operations</option>
+                    </select>
+                </div>
+                
+                <div class="employee-grid" id="employeeGrid">
+                     Employee cards will be populated by JavaScript 
+                </div>
+            </section>
+            
+             Other sections will be added here 
+            <section id="attendance-section" class="content-section">
+                <h2>Attendance Management</h2>
+                <p>Attendance tracking features coming soon...</p>
+            </section>
+            
+            <section id="payroll-section" class="content-section">
+                <h2>Payroll Management</h2>
+                <p>Payroll management features coming soon...</p>
+            </section>
+            
+            <section id="reports-section" class="content-section">
+                <h2>Reports & Analytics</h2>
+                <p>Reporting features coming soon...</p>
+            </section>
+            
+            <section id="settings-section" class="content-section">
+                <h2>System Settings</h2>
+                <p>Settings panel coming soon...</p>
+            </section>
+        </main>
+    </div>
+    
+     Add Employee Modal 
+    <div id="addEmployeeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Employee</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="addEmployeeForm" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="empFirstName">First Name</label>
+                        <input type="text" id="empFirstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empLastName">Last Name</label>
+                        <input type="text" id="empLastName" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="empEmail">Email</label>
+                    <input type="email" id="empEmail" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="empDepartment">Department</label>
+                        <select id="empDepartment" required>
+                            <option value="">Select Department</option>
+                            <option value="hr">Human Resources</option>
+                            <option value="it">Information Technology</option>
+                            <option value="finance">Finance</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="sales">Sales</option>
+                            <option value="operations">Operations</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="empPosition">Position</label>
+                        <input type="text" id="empPosition" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="empSalary">Salary</label>
+                        <input type="number" id="empSalary" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empStartDate">Start Date</label>
+                        <input type="date" id="empStartDate" required>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Employee</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="scripts/dashboard.js"></script>
+</body>
+</html>
