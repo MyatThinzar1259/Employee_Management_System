@@ -1,42 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Management System</title>
-    <link rel="stylesheet" href="./assets/css/index.css">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <div class="welcome-card fade-in">
-            <div class="logo float-animation">
-                <div class="logo-icon">👥</div>
-                <h1>DreamHR</h1>
-            </div>
-            <p class="subtitle">Your dreamy employee management experience</p>
-            
-            <div class="action-buttons">
-                <a href="login.html" class="btn btn-primary">Login</a>
-                <a href="register.php" class="btn btn-secondary">Register</a>
-            </div>
-            
-            <div class="features">
-                <div class="feature-item">
-                    <span class="feature-icon">✨</span>
-                    <span>Intuitive Interface</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🌸</span>
-                    <span>Beautiful Design</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🚀</span>
-                    <span>Easy Management</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="./assets/js/index.js"></script>
-</body>
-</html>
+<?php
+
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../app/Core/Bootstrap.php';
+
+use App\Core\Database;
+use App\Core\Router;
+
+// $router = new Router();
+// $router->get('/', 'DashboardController@index');
+// $router->get('/login', 'AuthController@loginForm');
+// $router->post('/login', 'AuthController@login');
+// $router->get('/logout', 'AuthController@logout');
+$db = Database::getInstance()->getConnection();
+print_r($db);
+die("Database connected successfully.");
+?>

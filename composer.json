@@ -1,5 +1,13 @@
 {
+    "name": "myatthinzar/employee-management-system",
+    "description": "Create your dreamy workspace with DreamHR - the ultimate Employee Management System.",
+    "type": "project",
     "require": {
         "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
     }
 }
