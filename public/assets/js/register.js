@@ -1,0 +1,1 @@
+alert(SITE_KEY);

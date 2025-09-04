@@ -5,7 +5,6 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 $secretKey = $_ENV['RECAPTCHA_SECRET_KEY'];
 $siteKey = $_ENV['RECAPTCHA_SITE_KEY'];
-die(var_dump($_POST));
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'] ?? '';
@@ -83,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p class="subtitle">Create your dreamy workspace account</p>
             </div>
             
-            <form id="registerForm" class="register-form" method="POST" action="register.php">
+            <form id="registerForm" class="register-form" method="POST" action="" enctype="multipart/form-data">
                 <!-- Combined first name and last name into single name field -->
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -234,11 +233,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
    <!-- Load reCAPTCHA with site key from .env -->
 <script src="https://www.google.com/recaptcha/api.js?render=<?php echo htmlspecialchars($siteKey); ?>"></script>
-
-<!-- Make SITE_KEY available in JS -->
+<script>
+grecaptcha.ready(function() {
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    grecaptcha.execute('<?php echo $siteKey; ?>', {action: 'submit'}).then(function(token) {
+        document.getElementById('recaptcha_token').value = token;
+        e.target.submit(); // continue form submit
+    });
+    });
+});
+</script>
 <script>
   const SITE_KEY = "<?php echo htmlspecialchars($siteKey); ?>";
 </script>
-<script src="scripts/register.js"></script>
 </body>
 </html>
