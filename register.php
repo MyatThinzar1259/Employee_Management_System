@@ -244,8 +244,5 @@ grecaptcha.ready(function() {
     });
 });
 </script>
-<script>
-  const SITE_KEY = "<?php echo htmlspecialchars($siteKey); ?>";
-</script>
 </body>
 </html>
