@@ -24,35 +24,36 @@
                     <span>Overview</span>
                 </a>
                 <a href="#" class="nav-item" data-section="employees">
-                    <span class="nav-icon">🧑‍💼</span>
-                    <span>Roles</span>
-                </a>
-                <a href="#" class="nav-item" data-section="employees">
                     <span class="nav-icon">👥</span>
                     <span>Employees</span>
                 </a>
-                <a href="#" class="nav-item" data-section="employees">
+                <!-- Added new sidebar menu items -->
+                <a href="#" class="nav-item" data-section="roles">
+                    <span class="nav-icon">🎭</span>
+                    <span>Roles</span>
+                </a>
+                <a href="#" class="nav-item" data-section="departments">
                     <span class="nav-icon">🏢</span>
                     <span>Departments</span>
                 </a>
-                <a href="#" class="nav-item" data-section="employees">
+                <a href="#" class="nav-item" data-section="assets">
                     <span class="nav-icon">💼</span>
-                    <span>Asserts</span>
+                    <span>Assets</span>
                 </a>
-                <a href="#" class="nav-item" data-section="employees">
-                    <span class="nav-icon">🏖️</span>
+                <a href="#" class="nav-item" data-section="holidays">
+                    <span class="nav-icon">🎉</span>
                     <span>Holidays</span>
                 </a>
-                <a href="#" class="nav-item" data-section="employees">
-                    <span class="nav-icon">🌴</span>
+                <a href="#" class="nav-item" data-section="leaves">
+                    <span class="nav-icon">🏖️</span>
                     <span>Leaves</span>
                 </a>
-                <a href="#" class="nav-item" data-section="employees">
-                    <span class="nav-icon">📜</span>
-                    <span>Certifications</span>
+                <a href="#" class="nav-item" data-section="certification">
+                    <span class="nav-icon">🏆</span>
+                    <span>Certification</span>
                 </a>
-                <a href="#" class="nav-item" data-section="employees">
-                    <span class="nav-icon">🏅</span>
+                <a href="#" class="nav-item" data-section="skills">
+                    <span class="nav-icon">⚡</span>
                     <span>Skills</span>
                 </a>
                 <a href="#" class="nav-item" data-section="attendance">
@@ -89,7 +90,15 @@
         </aside>
         
          Main Content 
+        <!-- Main Content -->
         <main class="main-content">
+            <!-- Added mobile menu toggle button -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
             <header class="main-header">
                 <div class="header-left">
                     <h1 id="pageTitle">Dashboard Overview</h1>
@@ -124,7 +133,7 @@
                         </div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon">🏠</div>
+                        <div class="stat-icon">📋</div>
                         <div class="stat-content">
                             <h3>Pending Certifications</h3>
                             <p class="stat-number">28</p>
@@ -134,7 +143,7 @@
                     <div class="stat-card">
                         <div class="stat-icon">📋</div>
                         <div class="stat-content">
-                            <h3>Pending Leave Requests</h3>
+                            <h3>Pending Leaves</h3>
                             <p class="stat-number">7</p>
                             <span class="stat-change negative">2 overdue</span>
                         </div>
@@ -222,6 +231,275 @@
             </section>
             
              Other sections will be added here 
+            <!-- Added new content sections -->
+            <!-- Roles Section -->
+            <section id="roles-section" class="content-section">
+                <div class="section-header">
+                    <h2>Role Management</h2>
+                    <button class="btn btn-primary" id="addRoleBtn">
+                        <span>➕</span>
+                        Add Role
+                    </button>
+                </div>
+                <div class="roles-grid">
+                    <div class="role-card">
+                        <div class="role-header">
+                            <span class="role-icon">👑</span>
+                            <h3>Administrator</h3>
+                        </div>
+                        <p>Full system access and management capabilities</p>
+                        <div class="role-permissions">
+                            <span class="permission-tag">All Permissions</span>
+                        </div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-header">
+                            <span class="role-icon">👨‍💼</span>
+                            <h3>Manager</h3>
+                        </div>
+                        <p>Team management and reporting access</p>
+                        <div class="role-permissions">
+                            <span class="permission-tag">Team Management</span>
+                            <span class="permission-tag">Reports</span>
+                        </div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-header">
+                            <span class="role-icon">👤</span>
+                            <h3>Employee</h3>
+                        </div>
+                        <p>Basic access to personal information and tasks</p>
+                        <div class="role-permissions">
+                            <span class="permission-tag">Profile</span>
+                            <span class="permission-tag">Tasks</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Departments Section -->
+            <section id="departments-section" class="content-section">
+                <div class="section-header">
+                    <h2>Department Management</h2>
+                    <button class="btn btn-primary" id="addDepartmentBtn">
+                        <span>➕</span>
+                        Add Department
+                    </button>
+                </div>
+                <div class="departments-grid">
+                    <div class="department-card">
+                        <div class="department-icon">💻</div>
+                        <h3>Information Technology</h3>
+                        <p>15 employees</p>
+                        <div class="department-stats">
+                            <span>Budget: $250,000</span>
+                            <span>Head: John Smith</span>
+                        </div>
+                    </div>
+                    <div class="department-card">
+                        <div class="department-icon">👥</div>
+                        <h3>Human Resources</h3>
+                        <p>8 employees</p>
+                        <div class="department-stats">
+                            <span>Budget: $180,000</span>
+                            <span>Head: Sarah Wilson</span>
+                        </div>
+                    </div>
+                    <div class="department-card">
+                        <div class="department-icon">📊</div>
+                        <h3>Marketing</h3>
+                        <p>12 employees</p>
+                        <div class="department-stats">
+                            <span>Budget: $200,000</span>
+                            <span>Head: Mike Johnson</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Assets Section -->
+            <section id="assets-section" class="content-section">
+                <div class="section-header">
+                    <h2>Asset Management</h2>
+                    <button class="btn btn-primary" id="addAssetBtn">
+                        <span>➕</span>
+                        Add Asset
+                    </button>
+                </div>
+                <div class="assets-table">
+                    <div class="table-header">
+                        <span>Asset Name</span>
+                        <span>Type</span>
+                        <span>Assigned To</span>
+                        <span>Status</span>
+                        <span>Purchase Date</span>
+                    </div>
+                    <div class="table-row">
+                        <span>MacBook Pro 16"</span>
+                        <span>Laptop</span>
+                        <span>John Doe</span>
+                        <span class="status active">Active</span>
+                        <span>2023-01-15</span>
+                    </div>
+                    <div class="table-row">
+                        <span>Dell Monitor 27"</span>
+                        <span>Monitor</span>
+                        <span>Sarah Johnson</span>
+                        <span class="status active">Active</span>
+                        <span>2023-02-20</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Holidays Section -->
+            <section id="holidays-section" class="content-section">
+                <div class="section-header">
+                    <h2>Holiday Management</h2>
+                    <button class="btn btn-primary" id="addHolidayBtn">
+                        <span>➕</span>
+                        Add Holiday
+                    </button>
+                </div>
+                <div class="holidays-calendar">
+                    <div class="holiday-item">
+                        <div class="holiday-date">
+                            <span class="month">Jan</span>
+                            <span class="day">01</span>
+                        </div>
+                        <div class="holiday-info">
+                            <h3>New Year's Day</h3>
+                            <p>Public Holiday</p>
+                        </div>
+                    </div>
+                    <div class="holiday-item">
+                        <div class="holiday-date">
+                            <span class="month">Jul</span>
+                            <span class="day">04</span>
+                        </div>
+                        <div class="holiday-info">
+                            <h3>Independence Day</h3>
+                            <p>Public Holiday</p>
+                        </div>
+                    </div>
+                    <div class="holiday-item">
+                        <div class="holiday-date">
+                            <span class="month">Dec</span>
+                            <span class="day">25</span>
+                        </div>
+                        <div class="holiday-info">
+                            <h3>Christmas Day</h3>
+                            <p>Public Holiday</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leaves Section -->
+            <section id="leaves-section" class="content-section">
+                <div class="section-header">
+                    <h2>Leave Management</h2>
+                    <button class="btn btn-primary" id="requestLeaveBtn">
+                        <span>➕</span>
+                        Request Leave
+                    </button>
+                </div>
+                <div class="leave-requests">
+                    <div class="leave-card">
+                        <div class="leave-header">
+                            <div class="employee-info">
+                                <span class="employee-name">John Doe</span>
+                                <span class="leave-type">Annual Leave</span>
+                            </div>
+                            <span class="leave-status pending">Pending</span>
+                        </div>
+                        <div class="leave-details">
+                            <span>From: March 15, 2024</span>
+                            <span>To: March 20, 2024</span>
+                            <span>Duration: 5 days</span>
+                        </div>
+                    </div>
+                    <div class="leave-card">
+                        <div class="leave-header">
+                            <div class="employee-info">
+                                <span class="employee-name">Sarah Johnson</span>
+                                <span class="leave-type">Sick Leave</span>
+                            </div>
+                            <span class="leave-status approved">Approved</span>
+                        </div>
+                        <div class="leave-details">
+                            <span>From: March 10, 2024</span>
+                            <span>To: March 12, 2024</span>
+                            <span>Duration: 2 days</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certification Section -->
+            <section id="certification-section" class="content-section">
+                <div class="section-header">
+                    <h2>Certification Management</h2>
+                    <button class="btn btn-primary" id="addCertificationBtn">
+                        <span>➕</span>
+                        Add Certification
+                    </button>
+                </div>
+                <div class="certifications-grid">
+                    <div class="certification-card">
+                        <div class="cert-icon">🏆</div>
+                        <h3>AWS Solutions Architect</h3>
+                        <p>John Smith - IT Department</p>
+                        <div class="cert-details">
+                            <span>Issued: Jan 2024</span>
+                            <span>Expires: Jan 2027</span>
+                        </div>
+                        <span class="cert-status valid">Valid</span>
+                    </div>
+                    <div class="certification-card">
+                        <div class="cert-icon">📜</div>
+                        <h3>Project Management Professional</h3>
+                        <p>Sarah Wilson - HR Department</p>
+                        <div class="cert-details">
+                            <span>Issued: Dec 2023</span>
+                            <span>Expires: Dec 2026</span>
+                        </div>
+                        <span class="cert-status valid">Valid</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills-section" class="content-section">
+                <div class="section-header">
+                    <h2>Skills Management</h2>
+                    <button class="btn btn-primary" id="addSkillBtn">
+                        <span>➕</span>
+                        Add Skill
+                    </button>
+                </div>
+                <div class="skills-overview">
+                    <div class="skill-category">
+                        <h3>Technical Skills</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">AWS</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Soft Skills</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Communication</span>
+                            <span class="skill-tag">Problem Solving</span>
+                            <span class="skill-tag">Team Work</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
             <section id="attendance-section" class="content-section">
                 <h2>Attendance Management</h2>
                 <p>Attendance tracking features coming soon...</p>
