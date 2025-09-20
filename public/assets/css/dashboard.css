@@ -27,7 +27,8 @@ body {
   position: fixed;
   height: 100vh;
   z-index: 100;
-  overflow: hidden; /* Added overflow hidden to prevent sidebar from scrolling as a whole */
+  overflow: hidden;
+  /* Added overflow hidden to prevent sidebar from scrolling as a whole */
 }
 
 .sidebar-header {
@@ -54,7 +55,8 @@ body {
 .sidebar-nav {
   flex: 1;
   padding: 20px 0;
-  overflow-y: auto; /* Added overflow-y auto to make navigation scrollable when content exceeds height */
+  overflow-y: auto;
+  /* Added overflow-y auto to make navigation scrollable when content exceeds height */
   overflow-x: hidden;
 }
 
@@ -169,7 +171,7 @@ body {
 /* Main Content Styles */
 .main-content {
   flex: 1;
-  margin-left: 280px;
+  margin-left: 100px;
   padding: 30px;
   max-width: calc(100vw - 280px);
 }
@@ -663,6 +665,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -732,7 +735,7 @@ body {
   }
 
   .main-content {
-    margin-left: 250px;
+    margin-left: 100px;
     max-width: calc(100vw - 250px);
   }
 
@@ -830,7 +833,8 @@ body {
   .filter-select {
     width: 100%;
     padding: 12px 16px;
-    font-size: 16px; /* Prevents zoom on iOS */
+    font-size: 16px;
+    /* Prevents zoom on iOS */
   }
 
   .employee-grid {
@@ -877,7 +881,7 @@ body {
     margin-bottom: 15px;
   }
 
-  .table-row > span {
+  .table-row>span {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -885,11 +889,11 @@ body {
     border-bottom: 1px solid rgba(168, 230, 207, 0.2);
   }
 
-  .table-row > span:last-child {
+  .table-row>span:last-child {
     border-bottom: none;
   }
 
-  .table-row > span::before {
+  .table-row>span::before {
     content: attr(data-label);
     font-weight: 600;
     color: #374151;
@@ -1032,7 +1036,8 @@ body {
 }
 
 /* High DPI displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
   .sidebar {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

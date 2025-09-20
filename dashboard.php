@@ -109,7 +109,7 @@
                         <span>🔔</span>
                         <span class="notification-badge">3</span>
                     </button>
-                    <div class="date-display" id="currentDate"></div>
+                    <div class="date-display" id="currentDate">📅 <?php echo date('Y/m/d'); ?> </div>
                 </div>
             </header>
             
@@ -202,7 +202,6 @@
                 </div>
             </section>
             
-             Employees Section 
             <section id="employees-section" class="content-section">
                 <div class="section-header">
                     <h2>Employee Management</h2>
@@ -230,7 +229,6 @@
                 </div>
             </section>
             
-             Other sections will be added here 
             <!-- Added new content sections -->
             <!-- Roles Section -->
             <section id="roles-section" class="content-section">
