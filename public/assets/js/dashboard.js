@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function initializeDashboard() {
-  // Check if user is logged in
-  // const currentUser = JSON.parse(localStorage.getItem("currentUser"))
-  // if (!currentUser) {
-  //   window.location.href = "login.html"
-  //   return
-  // }
+  //Check if user is logged in
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+  if (!currentUser) {
+    window.location.href = "login.html"
+    return
+  }
 
   // Update user info in sidebar
   document.getElementById("userName").textContent = currentUser.firstName || currentUser.name || "User"
@@ -195,7 +195,7 @@ function updatePageHeader(section) {
 }
 
 function setupEmployeeManagement() {
-  loadEmployees()
+  //loadEmployees()
   setupEmployeeFilters()
 }
 
@@ -288,7 +288,9 @@ function setupModal() {
 
   addBtn.addEventListener("click", () => {
     modal.classList.add("active")
-  })
+  //window.location.href = "register.html";
+});
+
 
   closeBtn.addEventListener("click", () => {
     modal.classList.remove("active")
