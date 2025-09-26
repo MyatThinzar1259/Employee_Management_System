@@ -89,7 +89,7 @@
             </div>
         </aside>
         
-         Main Content 
+         
         <!-- Main Content -->
         <main class="main-content">
             <!-- Added mobile menu toggle button -->
@@ -113,7 +113,7 @@
                 </div>
             </header>
             
-             Overview Section 
+             <!-- Overview Section  -->
             <section id="overview-section" class="content-section active">
                 <div class="stats-grid">
                     <div class="stat-card">
@@ -133,9 +133,9 @@
                         </div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon">📋</div>
+                        <div class="stat-icon">🏠</div>
                         <div class="stat-content">
-                            <h3>Pending Certifications</h3>
+                            <h3>Remote Workers</h3>
                             <p class="stat-number">28</p>
                             <span class="stat-change">18% of workforce</span>
                         </div>
@@ -143,7 +143,7 @@
                     <div class="stat-card">
                         <div class="stat-icon">📋</div>
                         <div class="stat-content">
-                            <h3>Pending Leaves</h3>
+                            <h3>Pending Tasks</h3>
                             <p class="stat-number">7</p>
                             <span class="stat-change negative">2 overdue</span>
                         </div>
@@ -202,8 +202,7 @@
                 </div>
             </section>
             
-            <!--  Employees Section -->
-             
+             <!-- Employees Section  -->
             <section id="employees-section" class="content-section">
                 <div class="section-header">
                     <h2>Employee Management</h2>
@@ -283,10 +282,35 @@
     </div>
   </div>
 </div>
-                  
+           
+             <!-- Added pagination section at bottom of employee section -->
+                <div class="pagination-container" id="paginationContainer">
+                    <div class="pagination-info">
+                        <span id="paginationInfo">Showing 1-10 of 120 employees</span>
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="pagination-btn" id="prevBtn" disabled>
+                            <span>←</span>
+                            Previous
+                        </button>
+                        <div class="pagination-numbers pagination-btn" id="paginationNumbers">
+                             <span>1</span>
+                        </div>
+                        <div class="pagination-numbers pagination-btn" id="paginationNumbers">
+                             <span>2</span>
+                        </div>
+                        <div class="pagination-numbers pagination-btn" id="paginationNumbers">
+                             <span>3</span>
+                        </div>
+                        <button class="pagination-btn" id="nextBtn">
+                            Next
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
             </section>
             
-             Other sections will be added here 
+             <!-- Other sections will be added here  -->
             <!-- Added new content sections -->
             <!-- Roles Section -->
             <section id="roles-section" class="content-section">
@@ -316,7 +340,7 @@
                         <p>HR and employee management, and team leader role assignment</p>
                         <div class="role-permissions">
                             <span class="permission-tag">HR and employee management</span>
-                            <span class="permission-tag">team leader role assign</span>
+                            <span class="permission-tag">leader role assignment</span>
                         </div>
                     </div>
                     <div class="role-card">
@@ -589,7 +613,7 @@
         </main>
     </div>
     
-     Add Employee Modal 
+     <!-- Add Employee Modal  -->
     <div id="addEmployeeModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -597,20 +621,62 @@
                 <button class="close-btn" id="closeModal">&times;</button>
             </div>
             <form id="addEmployeeForm" class="modal-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="empFirstName">First Name</label>
-                        <input type="text" id="empFirstName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="empLastName">Last Name</label>
-                        <input type="text" id="empLastName" required>
-                    </div>
-                </div>
+                 <!-- Combined name field like in registration  -->
                 <div class="form-group">
-                    <label for="empEmail">Email</label>
-                    <input type="email" id="empEmail" required>
+                    <label for="empName">Full Name</label>
+                    <input type="text" id="empName" required>
+                    <span class="input-focus"></span>
                 </div>
+                
+                <div class="form-group">
+                    <label for="empEmail">Email Address</label>
+                    <input type="email" id="empEmail" required>
+                    <span class="input-focus"></span>
+                </div>
+
+                 <!-- Added phone number field  -->
+                <div class="form-group">
+                    <label for="empPhone">Phone Number</label>
+                    <input type="tel" id="empPhone" required>
+                    <span class="input-focus"></span>
+                </div>
+
+                 <!-- Added address field  -->
+                <div class="form-group">
+                    <label for="empAddress">Address</label>
+                    <textarea id="empAddress" rows="3" required></textarea>
+                    <span class="input-focus"></span>
+                </div>
+
+                 <!-- Added gender selection with radio buttons  -->
+                <div class="form-group">
+                    <label class="field-label">Gender</label>
+                    <div class="radio-group">
+                        <label class="radio-container">
+                            <input type="radio" name="empGender" value="male" required>
+                            <span class="radio-mark"></span>
+                            Male
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="empGender" value="female" required>
+                            <span class="radio-mark"></span>
+                            Female
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="empGender" value="other" required>
+                            <span class="radio-mark"></span>
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+                 <!-- Added date of birth field (optional)  -->
+                <div class="form-group">
+                    <label for="empDateOfBirth">Date of Birth <span class="optional">(Optional)</span></label>
+                    <input type="date" id="empDateOfBirth">
+                    <span class="input-focus"></span>
+                </div>
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="empDepartment">Department</label>
@@ -623,27 +689,252 @@
                             <option value="sales">Sales</option>
                             <option value="operations">Operations</option>
                         </select>
+                        <span class="input-focus"></span>
                     </div>
+
+                     <!-- Added role dropdown  -->
                     <div class="form-group">
-                        <label for="empPosition">Position</label>
-                        <input type="text" id="empPosition" required>
+                        <label for="empRole">Role</label>
+                        <select id="empRole" required>
+                            <option value="">Select Role</option>
+                            <option value="manager">HR</option>
+                            <option value="senior">Team Leader</option>
+                            <option value="junior"> Employee</option>
+                            <option value="intern">Intern</option>
+                        </select>
+                        <span class="input-focus"></span>
                     </div>
                 </div>
-                <div class="form-row">
+                    
+                     <!-- Updated salary field to match registration  -->
                     <div class="form-group">
-                        <label for="empSalary">Salary</label>
-                        <input type="number" id="empSalary" required>
+                        <label for="empBasicSalary">Basic Salary</label>
+                        <input type="number" id="empBasicSalary" min="0" step="100" required>
+                        <span class="input-focus"></span>
                     </div>
-                    <div class="form-group">
-                        <label for="empStartDate">Start Date</label>
-                        <input type="date" id="empStartDate" required>
+                
+
+                 <!-- Added profile photo upload (optional)  -->
+                <div class="form-group">
+                    <label for="empProfilePhoto">Profile Photo <span class="optional">(Optional)</span></label>
+                    <div class="file-upload-container">
+                        <input type="file" id="empProfilePhoto" accept="image/*" class="file-input">
+                        <label for="empProfilePhoto" class="file-upload-label">
+                            <span class="upload-icon">📷</span>
+                        </label>
+                        <div class="file-preview" id="empFilePreview"></div>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="empStartDate">Start Date</label>
+                    <input type="date" id="empStartDate" required>
+                    <span class="input-focus"></span>
+                </div>
+
                 <div class="modal-actions">
                     <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
                     <button type="submit" class="btn btn-primary">Add Employee</button>
                 </div>
+            </div>
             </form>
+        </div>
+    </div>
+
+    <!-- Add Role Modal  -->
+    <div id="addRoleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Role</h3>
+                <button class="close-btn" id="closeRoleModal">&times;</button>
+            </div>
+            <form id="addRoleForm" class="modal-form">
+                <div class="form-group">
+                    <label for="roleName">Role Name</label>
+                    <input type="text" id="roleName" required>
+                    <span class="input-focus"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="roleDescription">Description</label>
+                    <textarea id="roleDescription" rows="3" required></textarea>
+                    <span class="input-focus"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="roleLevel">Role Level</label>
+                    <select id="roleLevel" required>
+                        <option value="">Select Level</option>
+                        <option value="executive">Executive</option>
+                        <option value="senior">Senior</option>
+                        <option value="mid">Mid-Level</option>
+                        <option value="junior">Junior</option>
+                        <option value="entry">Entry Level</option>
+                    </select>
+                    <span class="input-focus"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="roleDepartment">Department</label>
+                    <select id="roleDepartment" required>
+                        <option value="">Select Department</option>
+                        <option value="hr">Human Resources</option>
+                        <option value="it">Information Technology</option>
+                        <option value="finance">Finance</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="sales">Sales</option>
+                        <option value="operations">Operations</option>
+                        <option value="all">All Departments</option>
+                    </select>
+                    <span class="input-focus"></span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="roleMinSalary">Minimum Salary</label>
+                        <input type="number" id="roleMinSalary" min="0" step="1000" required>
+                        <span class="input-focus"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="roleMaxSalary">Maximum Salary</label>
+                        <input type="number" id="roleMaxSalary" min="0" step="1000" required>
+                        <span class="input-focus"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="field-label">Permissions</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="rolePermissions" value="read">
+                            <span class="checkbox-mark"></span>
+                            HR Access
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="rolePermissions" value="write">
+                            <span class="checkbox-mark"></span>
+                            Team Leader Access
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="field-label">Status</label>
+                    <div class="radio-group">
+                        <label class="radio-container">
+                            <input type="radio" name="roleStatus" value="active" checked required>
+                            <span class="radio-mark"></span>
+                            Active
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="roleStatus" value="inactive" required>
+                            <span class="radio-mark"></span>
+                            Inactive
+                        </label>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelRoleBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Role</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Employee Detail Modal  -->
+    <div id="employeeDetailModal" class="modal">
+        <div class="modal-content employee-detail-content">
+            <div class="modal-header">
+                <h3>Employee Details</h3>
+                <button class="close-btn" id="closeEmployeeDetailModal">&times;</button>
+            </div>
+            <div class="employee-detail-body">
+                <div class="employee-profile-section">
+                    <div class="employee-profile-avatar" id="detailEmployeeAvatar">
+                         Avatar will be populated by JavaScript 
+                    </div>
+                    <div class="employee-profile-info">
+                        <h2 id="detailEmployeeName">Employee Name</h2>
+                        <p id="detailEmployeePosition">Position</p>
+                        <span class="employee-status active" id="detailEmployeeStatus">Active</span>
+                    </div>
+                </div>
+                
+                <div class="employee-detail-grid">
+                    <div class="detail-section">
+                        <h4>Personal Information</h4>
+                        <div class="detail-item">
+                            <span class="detail-label">Full Name:</span>
+                            <span class="detail-value" id="detailFullName">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Email:</span>
+                            <span class="detail-value" id="detailEmail">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Phone:</span>
+                            <span class="detail-value" id="detailPhone">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Address:</span>
+                            <span class="detail-value" id="detailAddress">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Gender:</span>
+                            <span class="detail-value" id="detailGender">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Date of Birth:</span>
+                            <span class="detail-value" id="detailDateOfBirth">-</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Work Information</h4>
+                        <div class="detail-item">
+                            <span class="detail-label">Department:</span>
+                            <span class="detail-value" id="detailDepartment">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Role:</span>
+                            <span class="detail-value" id="detailRole">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Position:</span>
+                            <span class="detail-value" id="detailPosition">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Basic Salary:</span>
+                            <span class="detail-value" id="detailSalary">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Start Date:</span>
+                            <span class="detail-value" id="detailStartDate">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Employee ID:</span>
+                            <span class="detail-value" id="detailEmployeeId">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="employee-actions">
+                    <button class="btn btn-primary" id="editEmployeeBtn">
+                        <span>✏️</span>
+                        Edit Employee
+                    </button>
+                    <button class="btn btn-secondary" id="deactivateEmployeeBtn">
+                        <span>🚫</span>
+                        Deactivate
+                    </button>
+                    <button class="btn btn-danger" id="deleteEmployeeBtn">
+                        <span>🗑️</span>
+                        Delete Employee
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
     
