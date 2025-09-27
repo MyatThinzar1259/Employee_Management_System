@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DreamHR</title>
+    <link rel="stylesheet" href="public/assets/css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+         Sidebar 
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">🌸</span>
+                    <h2>DreamHR</h2>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="overview">
+                    <span class="nav-icon">📊</span>
+                    <span>Overview</span>
+                </a>
+                <a href="#" class="nav-item" data-section="employees">
+                    <span class="nav-icon">👥</span>
+                    <span>Employees</span>
+                </a>
+                <!-- Added new sidebar menu items -->
+                <a href="#" class="nav-item" data-section="roles">
+                    <span class="nav-icon">🎭</span>
+                    <span>Roles</span>
+                </a>
+                <a href="#" class="nav-item" data-section="departments">
+                    <span class="nav-icon">🏢</span>
+                    <span>Departments</span>
+                </a>
+                <a href="#" class="nav-item" data-section="assets">
+                    <span class="nav-icon">💼</span>
+                    <span>Assets</span>
+                </a>
+                <a href="#" class="nav-item" data-section="holidays">
+                    <span class="nav-icon">🎉</span>
+                    <span>Holidays</span>
+                </a>
+                <a href="#" class="nav-item" data-section="leaves">
+                    <span class="nav-icon">🏖️</span>
+                    <span>Leaves</span>
+                </a>
+                <a href="#" class="nav-item" data-section="certification">
+                    <span class="nav-icon">🏆</span>
+                    <span>Certification</span>
+                </a>
+                <a href="#" class="nav-item" data-section="skills">
+                    <span class="nav-icon">⚡</span>
+                    <span>Skills</span>
+                </a>
+                <a href="#" class="nav-item" data-section="attendance">
+                    <span class="nav-icon">📅</span>
+                    <span>Attendance</span>
+                </a>
+                <a href="#" class="nav-item" data-section="payroll">
+                    <span class="nav-icon">💰</span>
+                    <span>Payroll</span>
+                </a>
+                <a href="#" class="nav-item" data-section="reports">
+                    <span class="nav-icon">📈</span>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="nav-item" data-section="settings">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-details">
+                        <span class="user-name" id="userName">User</span>
+                        <span class="user-role" id="userRole">Employee</span>
+                    </div>
+                </div>
+                <button class="logout-btn" id="logoutBtn">
+                    <span>🚪</span>
+                    Logout
+                </button>
+            </div>
+        </aside>
+        
+         
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Added mobile menu toggle button -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <header class="main-header">
+                <div class="header-left">
+                    <h1 id="pageTitle">Dashboard Overview</h1>
+                    <p id="pageSubtitle">Welcome back! Here's what's happening today.</p>
+                </div>
+                <div class="header-right">
+                    <button class="notification-btn">
+                        <span>🔔</span>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="date-display" id="currentDate">📅 <?php echo date('Y/m/d'); ?> </div>
+                </div>
+            </header>
+            
+             <!-- Overview Section  -->
+            <section id="overview-section" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-content">
+                            <h3>Total Employees</h3>
+                            <p class="stat-number">156</p>
+                            <span class="stat-change positive">+12 this month</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <h3>Present Today</h3>
+                            <p class="stat-number">142</p>
+                            <span class="stat-change">91% attendance</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏠</div>
+                        <div class="stat-content">
+                            <h3>Remote Workers</h3>
+                            <p class="stat-number">28</p>
+                            <span class="stat-change">18% of workforce</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📋</div>
+                        <div class="stat-content">
+                            <h3>Pending Tasks</h3>
+                            <p class="stat-number">7</p>
+                            <span class="stat-change negative">2 overdue</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Recent Activities</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <span class="activity-icon">👤</span>
+                                <div class="activity-content">
+                                    <p>New employee Sarah Johnson joined Marketing</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-icon">📅</span>
+                                <div class="activity-content">
+                                    <p>Team meeting scheduled for tomorrow 2 PM</p>
+                                    <span class="activity-time">4 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-icon">💰</span>
+                                <div class="activity-content">
+                                    <p>Payroll processed for March 2024</p>
+                                    <span class="activity-time">1 day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3>Quick Actions</h3>
+                        <div class="quick-actions">
+                            <button class="action-btn">
+                                <span>➕</span>
+                                Add Employee
+                            </button>
+                            <button class="action-btn">
+                                <span>📊</span>
+                                Generate Report
+                            </button>
+                            <button class="action-btn">
+                                <span>📧</span>
+                                Send Announcement
+                            </button>
+                            <button class="action-btn">
+                                <span>⏰</span>
+                                Schedule Meeting
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+             <!-- Employees Section  -->
+            <section id="employees-section" class="content-section">
+                <div class="section-header">
+                    <h2>Employee Management</h2>
+                    <button class="btn btn-primary" id="addEmployeeBtn">
+                        <span>➕</span>
+                        Add Employee
+                    </button>
+                </div>
+                
+                <div class="employee-filters">
+                    <input type="text" placeholder="Search employees..." class="search-input" id="employeeSearch">
+                    <select class="filter-select" id="departmentFilter">
+                        <option value="">All Departments</option>
+                        <option value="hr">Human Resources</option>
+                        <option value="it">Information Technology</option>
+                        <option value="finance">Finance</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="sales">Sales</option>
+                        <option value="operations">Operations</option>
+                    </select>
+                </div>
+                
+                <div class="employee-grid" id="employeeGrid">
+  <div class="employee-card" data-department="it">
+    <div class="employee-header">
+      <div class="employee-avatar">MC</div>
+      <div class="employee-info">
+        <h4>Michael Chen</h4>
+        <p>Software Developer</p>
+      </div>
+    </div>
+    <div class="employee-details">
+      <div class="employee-detail">
+        <span>Department:</span>
+        <span>Information Technology</span>
+      </div>
+      <div class="employee-detail">
+        <span>Email:</span>
+        <span>michael.chen@company.com</span>
+      </div>
+      <div class="employee-detail">
+        <span>Salary:</span>
+        <span>$85,000</span>
+      </div>
+      <div class="employee-detail">
+        <span>Start Date:</span>
+        <span>Aug 20, 2022</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="employee-card" data-department="hr">
+    <div class="employee-header">
+      <div class="employee-avatar">ED</div>
+      <div class="employee-info">
+        <h4>Emily Davis</h4>
+        <p>HR Specialist</p>
+      </div>
+    </div>
+    <div class="employee-details">
+      <div class="employee-detail">
+        <span>Department:</span>
+        <span>Human Resources</span>
+      </div>
+      <div class="employee-detail">
+        <span>Email:</span>
+        <span>emily.davis@company.com</span>
+      </div>
+      <div class="employee-detail">
+        <span>Salary:</span>
+        <span>$65,000</span>
+      </div>
+      <div class="employee-detail">
+        <span>Start Date:</span>
+        <span>Mar 10, 2023</span>
+      </div>
+    </div>
+  </div>
+</div>
+           
+             <!-- Added pagination section at bottom of employee section -->
+                <div class="pagination-container" id="paginationContainer">
+                    <div class="pagination-info">
+                        <span id="paginationInfo">Showing 1-10 of 120 employees</span>
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="pagination-btn" id="prevBtn" disabled>
+                            <span>←</span>
+                            Previous
+                        </button>
+                        <div class="pagination-numbers pagination-btn" id="paginationNumbers">
+                             <span>1</span>
+                        </div>
+                        <div class="pagination-numbers pagination-btn" id="paginationNumbers">
+                             <span>2</span>
+                        </div>
+                        <div class="pagination-numbers pagination-btn" id="paginationNumbers">
+                             <span>3</span>
+                        </div>
+                        <button class="pagination-btn" id="nextBtn">
+                            Next
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+             <!-- Other sections will be added here  -->
+            <!-- Added new content sections -->
+            <!-- Roles Section -->
+            <section id="roles-section" class="content-section">
+                <div class="section-header">
+                    <h2>Role Management</h2>
+                    <button class="btn btn-primary" id="addRoleBtn">
+                        <span>➕</span>
+                        Add Role
+                    </button>
+                </div>
+                <div class="roles-grid">
+                    <div class="role-card">
+                        <div class="role-header">
+                            <span class="role-icon">👑</span>
+                            <h3>Super Admin</h3>
+                        </div>
+                        <p>Full system access and management capabilities</p>
+                        <div class="role-permissions">
+                            <span class="permission-tag">All Permissions</span>
+                        </div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-header">
+                            <span class="role-icon">🧑‍💼</span>
+                            <h3>HR</h3>
+                        </div>
+                        <p>HR and employee management, and team leader role assignment</p>
+                        <div class="role-permissions">
+                            <span class="permission-tag">HR and employee management</span>
+                            <span class="permission-tag">leader role assignment</span>
+                        </div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-header">
+                            <span class="role-icon">👨‍💼</span>
+                            <h3>Team Leader</h3>
+                        </div>
+                        <p>Team management and reporting access</p>
+                        <div class="role-permissions">
+                            <span class="permission-tag">Team Management</span>
+                            <span class="permission-tag">Reports</span>
+                        </div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-header">
+                            <span class="role-icon">👤</span>
+                            <h3>Employee</h3>
+                        </div>
+                        <p>Basic access to personal information and tasks</p>
+                        <div class="role-permissions">
+                            <span class="permission-tag">Profile</span>
+                            <span class="permission-tag">Tasks</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Departments Section -->
+            <section id="departments-section" class="content-section">
+                <div class="section-header">
+                    <h2>Department Management</h2>
+                    <button class="btn btn-primary" id="addDepartmentBtn">
+                        <span>➕</span>
+                        Add Department
+                    </button>
+                </div>
+                <div class="departments-grid">
+                    <div class="department-card">
+                        <div class="department-icon">💻</div>
+                        <h3>Information Technology</h3>
+                        <p>15 employees</p>
+                        <div class="department-stats">
+                            <span>Budget: $250,000</span>
+                            <span>Head: John Smith</span>
+                        </div>
+                    </div>
+                    <div class="department-card">
+                        <div class="department-icon">👥</div>
+                        <h3>Human Resources</h3>
+                        <p>8 employees</p>
+                        <div class="department-stats">
+                            <span>Budget: $180,000</span>
+                            <span>Head: Sarah Wilson</span>
+                        </div>
+                    </div>
+                    <div class="department-card">
+                        <div class="department-icon">📊</div>
+                        <h3>Marketing</h3>
+                        <p>12 employees</p>
+                        <div class="department-stats">
+                            <span>Budget: $200,000</span>
+                            <span>Head: Mike Johnson</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Assets Section -->
+            <section id="assets-section" class="content-section">
+                <div class="section-header">
+                    <h2>Asset Management</h2>
+                    <button class="btn btn-primary" id="addAssetBtn">
+                        <span>➕</span>
+                        Add Asset
+                    </button>
+                </div>
+                <div class="assets-table">
+                    <div class="table-header">
+                        <span>Asset Name</span>
+                        <span>Type</span>
+                        <span>Assigned To</span>
+                        <span>Status</span>
+                        <span>Purchase Date</span>
+                    </div>
+                    <div class="table-row">
+                        <span>MacBook Pro 16"</span>
+                        <span>Laptop</span>
+                        <span>John Doe</span>
+                        <span class="status active">Active</span>
+                        <span>2023-01-15</span>
+                    </div>
+                    <div class="table-row">
+                        <span>Dell Monitor 27"</span>
+                        <span>Monitor</span>
+                        <span>Sarah Johnson</span>
+                        <span class="status active">Active</span>
+                        <span>2023-02-20</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Holidays Section -->
+            <section id="holidays-section" class="content-section">
+                <div class="section-header">
+                    <h2>Holiday Management</h2>
+                    <button class="btn btn-primary" id="addHolidayBtn">
+                        <span>➕</span>
+                        Add Holiday
+                    </button>
+                </div>
+                <div class="holidays-calendar">
+                    <div class="holiday-item">
+                        <div class="holiday-date">
+                            <span class="month">Jan</span>
+                            <span class="day">01</span>
+                        </div>
+                        <div class="holiday-info">
+                            <h3>New Year's Day</h3>
+                            <p>Public Holiday</p>
+                        </div>
+                    </div>
+                    <div class="holiday-item">
+                        <div class="holiday-date">
+                            <span class="month">Jul</span>
+                            <span class="day">04</span>
+                        </div>
+                        <div class="holiday-info">
+                            <h3>Independence Day</h3>
+                            <p>Public Holiday</p>
+                        </div>
+                    </div>
+                    <div class="holiday-item">
+                        <div class="holiday-date">
+                            <span class="month">Dec</span>
+                            <span class="day">25</span>
+                        </div>
+                        <div class="holiday-info">
+                            <h3>Christmas Day</h3>
+                            <p>Public Holiday</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leaves Section -->
+            <section id="leaves-section" class="content-section">
+                <div class="section-header">
+                    <h2>Leave Management</h2>
+                    <button class="btn btn-primary" id="requestLeaveBtn">
+                        <span>➕</span>
+                        Request Leave
+                    </button>
+                </div>
+                <div class="leave-requests">
+                    <div class="leave-card">
+                        <div class="leave-header">
+                            <div class="employee-info">
+                                <span class="employee-name">John Doe</span>
+                                <span class="leave-type">Annual Leave</span>
+                            </div>
+                            <span class="leave-status pending">Pending</span>
+                        </div>
+                        <div class="leave-details">
+                            <span>From: March 15, 2024</span>
+                            <span>To: March 20, 2024</span>
+                            <span>Duration: 5 days</span>
+                        </div>
+                    </div>
+                    <div class="leave-card">
+                        <div class="leave-header">
+                            <div class="employee-info">
+                                <span class="employee-name">Sarah Johnson</span>
+                                <span class="leave-type">Sick Leave</span>
+                            </div>
+                            <span class="leave-status approved">Approved</span>
+                        </div>
+                        <div class="leave-details">
+                            <span>From: March 10, 2024</span>
+                            <span>To: March 12, 2024</span>
+                            <span>Duration: 2 days</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certification Section -->
+            <section id="certification-section" class="content-section">
+                <div class="section-header">
+                    <h2>Certification Management</h2>
+                    <button class="btn btn-primary" id="addCertificationBtn">
+                        <span>➕</span>
+                        Add Certification
+                    </button>
+                </div>
+                <div class="certifications-grid">
+                    <div class="certification-card">
+                        <div class="cert-icon">🏆</div>
+                        <h3>AWS Solutions Architect</h3>
+                        <p>John Smith - IT Department</p>
+                        <div class="cert-details">
+                            <span>Issued: Jan 2024</span>
+                            <span>Expires: Jan 2027</span>
+                        </div>
+                        <span class="cert-status valid">Valid</span>
+                    </div>
+                    <div class="certification-card">
+                        <div class="cert-icon">📜</div>
+                        <h3>Project Management Professional</h3>
+                        <p>Sarah Wilson - HR Department</p>
+                        <div class="cert-details">
+                            <span>Issued: Dec 2023</span>
+                            <span>Expires: Dec 2026</span>
+                        </div>
+                        <span class="cert-status valid">Valid</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills-section" class="content-section">
+                <div class="section-header">
+                    <h2>Skills Management</h2>
+                    <button class="btn btn-primary" id="addSkillBtn">
+                        <span>➕</span>
+                        Add Skill
+                    </button>
+                </div>
+                <div class="skills-overview">
+                    <div class="skill-category">
+                        <h3>Technical Skills</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">AWS</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Soft Skills</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Communication</span>
+                            <span class="skill-tag">Problem Solving</span>
+                            <span class="skill-tag">Team Work</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="attendance-section" class="content-section">
+                <h2>Attendance Management</h2>
+                <p>Attendance tracking features coming soon...</p>
+            </section>
+            
+            <section id="payroll-section" class="content-section">
+                <h2>Payroll Management</h2>
+                <p>Payroll management features coming soon...</p>
+            </section>
+            
+            <section id="reports-section" class="content-section">
+                <h2>Reports & Analytics</h2>
+                <p>Reporting features coming soon...</p>
+            </section>
+            
+            <section id="settings-section" class="content-section">
+                <h2>System Settings</h2>
+                <p>Settings panel coming soon...</p>
+            </section>
+        </main>
+    </div>
+    
+     <!-- Add Employee Modal  -->
+    <div id="addEmployeeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Employee</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="addEmployeeForm" class="modal-form">
+                 <!-- Combined name field like in registration  -->
+                <div class="form-group">
+                    <label for="empName">Full Name</label>
+                    <input type="text" id="empName" required>
+                    <span class="input-focus"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="empEmail">Email Address</label>
+                    <input type="email" id="empEmail" required>
+                    <span class="input-focus"></span>
+                </div>
+
+                 <!-- Added phone number field  -->
+                <div class="form-group">
+                    <label for="empPhone">Phone Number</label>
+                    <input type="tel" id="empPhone" required>
+                    <span class="input-focus"></span>
+                </div>
+
+                 <!-- Added address field  -->
+                <div class="form-group">
+                    <label for="empAddress">Address</label>
+                    <textarea id="empAddress" rows="3" required></textarea>
+                    <span class="input-focus"></span>
+                </div>
+
+                 <!-- Added gender selection with radio buttons  -->
+                <div class="form-group">
+                    <label class="field-label">Gender</label>
+                    <div class="radio-group">
+                        <label class="radio-container">
+                            <input type="radio" name="empGender" value="male" required>
+                            <span class="radio-mark"></span>
+                            Male
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="empGender" value="female" required>
+                            <span class="radio-mark"></span>
+                            Female
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="empGender" value="other" required>
+                            <span class="radio-mark"></span>
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+                 <!-- Added date of birth field (optional)  -->
+                <div class="form-group">
+                    <label for="empDateOfBirth">Date of Birth <span class="optional">(Optional)</span></label>
+                    <input type="date" id="empDateOfBirth">
+                    <span class="input-focus"></span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="empDepartment">Department</label>
+                        <select id="empDepartment" required>
+                            <option value="">Select Department</option>
+                            <option value="hr">Human Resources</option>
+                            <option value="it">Information Technology</option>
+                            <option value="finance">Finance</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="sales">Sales</option>
+                            <option value="operations">Operations</option>
+                        </select>
+                        <span class="input-focus"></span>
+                    </div>
+
+                     <!-- Added role dropdown  -->
+                    <div class="form-group">
+                        <label for="empRole">Role</label>
+                        <select id="empRole" required>
+                            <option value="">Select Role</option>
+                            <option value="manager">HR</option>
+                            <option value="senior">Team Leader</option>
+                            <option value="junior"> Employee</option>
+                            <option value="intern">Intern</option>
+                        </select>
+                        <span class="input-focus"></span>
+                    </div>
+                </div>
+                    
+                     <!-- Updated salary field to match registration  -->
+                    <div class="form-group">
+                        <label for="empBasicSalary">Basic Salary</label>
+                        <input type="number" id="empBasicSalary" min="0" step="100" required>
+                        <span class="input-focus"></span>
+                    </div>
+                
+
+                 <!-- Added profile photo upload (optional)  -->
+                <div class="form-group">
+                    <label for="empProfilePhoto">Profile Photo <span class="optional">(Optional)</span></label>
+                    <div class="file-upload-container">
+                        <input type="file" id="empProfilePhoto" accept="image/*" class="file-input">
+                        <label for="empProfilePhoto" class="file-upload-label">
+                            <span class="upload-icon">📷</span>
+                        </label>
+                        <div class="file-preview" id="empFilePreview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="empStartDate">Start Date</label>
+                    <input type="date" id="empStartDate" required>
+                    <span class="input-focus"></span>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Employee</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Role Modal  -->
+    <div id="addRoleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Role</h3>
+                <button class="close-btn" id="closeRoleModal">&times;</button>
+            </div>
+            <form id="addRoleForm" class="modal-form">
+                <div class="form-group">
+                    <label for="roleName">Role Name</label>
+                    <input type="text" id="roleName" required>
+                    <span class="input-focus"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="roleDescription">Description</label>
+                    <textarea id="roleDescription" rows="3" required></textarea>
+                    <span class="input-focus"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="roleLevel">Role Level</label>
+                    <select id="roleLevel" required>
+                        <option value="">Select Level</option>
+                        <option value="executive">Executive</option>
+                        <option value="senior">Senior</option>
+                        <option value="mid">Mid-Level</option>
+                        <option value="junior">Junior</option>
+                        <option value="entry">Entry Level</option>
+                    </select>
+                    <span class="input-focus"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="roleDepartment">Department</label>
+                    <select id="roleDepartment" required>
+                        <option value="">Select Department</option>
+                        <option value="hr">Human Resources</option>
+                        <option value="it">Information Technology</option>
+                        <option value="finance">Finance</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="sales">Sales</option>
+                        <option value="operations">Operations</option>
+                        <option value="all">All Departments</option>
+                    </select>
+                    <span class="input-focus"></span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="roleMinSalary">Minimum Salary</label>
+                        <input type="number" id="roleMinSalary" min="0" step="1000" required>
+                        <span class="input-focus"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="roleMaxSalary">Maximum Salary</label>
+                        <input type="number" id="roleMaxSalary" min="0" step="1000" required>
+                        <span class="input-focus"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="field-label">Permissions</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="rolePermissions" value="read">
+                            <span class="checkbox-mark"></span>
+                            HR Access
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="rolePermissions" value="write">
+                            <span class="checkbox-mark"></span>
+                            Team Leader Access
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="field-label">Status</label>
+                    <div class="radio-group">
+                        <label class="radio-container">
+                            <input type="radio" name="roleStatus" value="active" checked required>
+                            <span class="radio-mark"></span>
+                            Active
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="roleStatus" value="inactive" required>
+                            <span class="radio-mark"></span>
+                            Inactive
+                        </label>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelRoleBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Role</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Employee Detail Modal  -->
+    <div id="employeeDetailModal" class="modal">
+        <div class="modal-content employee-detail-content">
+            <div class="modal-header">
+                <h3>Employee Details</h3>
+                <button class="close-btn" id="closeEmployeeDetailModal">&times;</button>
+            </div>
+            <div class="employee-detail-body">
+                <div class="employee-profile-section">
+                    <div class="employee-profile-avatar" id="detailEmployeeAvatar">
+                         Avatar will be populated by JavaScript 
+                    </div>
+                    <div class="employee-profile-info">
+                        <h2 id="detailEmployeeName">Employee Name</h2>
+                        <p id="detailEmployeePosition">Position</p>
+                        <span class="employee-status active" id="detailEmployeeStatus">Active</span>
+                    </div>
+                </div>
+                
+                <div class="employee-detail-grid">
+                    <div class="detail-section">
+                        <h4>Personal Information</h4>
+                        <div class="detail-item">
+                            <span class="detail-label">Full Name:</span>
+                            <span class="detail-value" id="detailFullName">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Email:</span>
+                            <span class="detail-value" id="detailEmail">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Phone:</span>
+                            <span class="detail-value" id="detailPhone">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Address:</span>
+                            <span class="detail-value" id="detailAddress">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Gender:</span>
+                            <span class="detail-value" id="detailGender">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Date of Birth:</span>
+                            <span class="detail-value" id="detailDateOfBirth">-</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Work Information</h4>
+                        <div class="detail-item">
+                            <span class="detail-label">Department:</span>
+                            <span class="detail-value" id="detailDepartment">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Role:</span>
+                            <span class="detail-value" id="detailRole">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Position:</span>
+                            <span class="detail-value" id="detailPosition">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Basic Salary:</span>
+                            <span class="detail-value" id="detailSalary">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Start Date:</span>
+                            <span class="detail-value" id="detailStartDate">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Employee ID:</span>
+                            <span class="detail-value" id="detailEmployeeId">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="employee-actions">
+                    <button class="btn btn-primary" id="editEmployeeBtn">
+                        <span>✏️</span>
+                        Edit Employee
+                    </button>
+                    <button class="btn btn-secondary" id="deactivateEmployeeBtn">
+                        <span>🚫</span>
+                        Deactivate
+                    </button>
+                    <button class="btn btn-danger" id="deleteEmployeeBtn">
+                        <span>🗑️</span>
+                        Delete Employee
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="public/assets/js/dashboard.js"></script>
+</body>
+</html>
