@@ -536,98 +536,502 @@
                     </div>
                 </div>
                 
-                <!-- Quick Stats -->
-                <div class="attendance-stats">
-                    <div class="stat-card">
-                        <div class="stat-icon">👥</div>
-                        <div class="stat-content">
-                            <h3>Present Today</h3>
-                            <p class="stat-number" id="presentToday">142</p>
-                            <span class="stat-change">91% attendance</span>
+                <!-- CHANGE --> Enhanced attendance navigation tabs 
+                <div class="attendance-tabs">
+                    <button class="tab-btn active" data-tab="overview">Overview</button>
+                    <button class="tab-btn" data-tab="analytics">Analytics & Reports</button>
+                    <button class="tab-btn" data-tab="trends">Weekly Trends</button>
+                    <button class="tab-btn" data-tab="departments">Department Overview</button>
+                    <button class="tab-btn" data-tab="calendar">Calendar View</button>
+                </div>
+                
+                 Overview Tab Content 
+                <div class="tab-content active" id="overview-tab">
+                     Quick Stats 
+                    <div class="attendance-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-content">
+                                <h3>Present Today</h3>
+                                <p class="stat-number" id="presentToday">142</p>
+                                <span class="stat-change">91% attendance</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🏠</div>
+                            <div class="stat-content">
+                                <h3>Remote Workers</h3>
+                                <p class="stat-number" id="remoteToday">28</p>
+                                <span class="stat-change">18% of workforce</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⏰</div>
+                            <div class="stat-content">
+                                <h3>Late Arrivals</h3>
+                                <p class="stat-number" id="lateToday">5</p>
+                                <span class="stat-change negative">3% of present</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🚫</div>
+                            <div class="stat-content">
+                                <h3>Absent Today</h3>
+                                <p class="stat-number" id="absentToday">14</p>
+                                <span class="stat-change">9% of workforce</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">🏠</div>
-                        <div class="stat-content">
-                            <h3>Remote Workers</h3>
-                            <p class="stat-number" id="remoteToday">28</p>
-                            <span class="stat-change">18% of workforce</span>
-                        </div>
+                    
+                     Attendance Filters 
+                    <div class="attendance-filters">
+                        <input type="text" placeholder="Search employees..." class="search-input" id="attendanceSearch">
+                        <select class="filter-select" id="attendanceStatusFilter">
+                            <option value="">All Status</option>
+                            <option value="present">Present</option>
+                            <option value="absent">Absent</option>
+                            <option value="late">Late</option>
+                            <option value="remote">Remote</option>
+                        </select>
+                        <select class="filter-select" id="attendanceDepartmentFilter">
+                            <option value="">All Departments</option>
+                            <option value="hr">Human Resources</option>
+                            <option value="it">Information Technology</option>
+                            <option value="finance">Finance</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="sales">Sales</option>
+                            <option value="operations">Operations</option>
+                        </select>
+                        <input type="date" class="date-input" id="attendanceDate" value="">
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">⏰</div>
-                        <div class="stat-content">
-                            <h3>Late Arrivals</h3>
-                            <p class="stat-number" id="lateToday">5</p>
-                            <span class="stat-change negative">3% of present</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">🚫</div>
-                        <div class="stat-content">
-                            <h3>Absent Today</h3>
-                            <p class="stat-number" id="absentToday">14</p>
-                            <span class="stat-change">9% of workforce</span>
+                    
+                     Attendance Table 
+                    <div class="attendance-table-container">
+                        <div class="attendance-table">
+                            <div class="table-header">
+                                <span>Employee</span>
+                                <span>Department</span>
+                                <span>Check In</span>
+                                <span>Check Out</span>
+                                <span>Hours</span>
+                                <span>Status</span>
+                                <span>Actions</span>
+                            </div>
+                            <div class="table-body" id="attendanceTableBody">
+                                 Attendance records will be populated by JavaScript 
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Attendance Filters -->
-                <div class="attendance-filters">
-                    <input type="text" placeholder="Search employees..." class="search-input" id="attendanceSearch">
-                    <select class="filter-select" id="attendanceStatusFilter">
-                        <option value="">All Status</option>
-                        <option value="present">Present</option>
-                        <option value="absent">Absent</option>
-                        <option value="late">Late</option>
-                        <option value="remote">Remote</option>
-                    </select>
-                    <select class="filter-select" id="attendanceDepartmentFilter">
-                        <option value="">All Departments</option>
-                        <option value="hr">Human Resources</option>
-                        <option value="it">Information Technology</option>
-                        <option value="finance">Finance</option>
-                        <option value="marketing">Marketing</option>
-                        <option value="sales">Sales</option>
-                        <option value="operations">Operations</option>
-                    </select>
-                    <input type="date" class="date-input" id="attendanceDate" value="">
-                </div>
-                
-                <!-- Attendance Table -->
-                <div class="attendance-table-container">
-                    <div class="attendance-table">
-                        <div class="table-header">
-                            <span>Employee</span>
-                            <span>Department</span>
-                            <span>Check In</span>
-                            <span>Check Out</span>
-                            <span>Hours</span>
-                            <span>Status</span>
-                            <span>Actions</span>
+                 <!-- CHANGE --> New Analytics & Reports Tab 
+                <div class="tab-content" id="analytics-tab">
+                    <div class="analytics-overview">
+                        <div class="analytics-card">
+                            <div class="analytics-header">
+                                <h3>📈 Attendance Analytics</h3>
+                                <select class="period-select">
+                                    <option value="week">This Week</option>
+                                    <option value="month">This Month</option>
+                                    <option value="quarter">This Quarter</option>
+                                    <option value="year">This Year</option>
+                                </select>
+                            </div>
+                            <div class="analytics-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">Average Attendance</span>
+                                    <span class="metric-value">89.2%</span>
+                                    <span class="metric-trend positive">+2.1%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">On-Time Rate</span>
+                                    <span class="metric-value">94.7%</span>
+                                    <span class="metric-trend positive">+1.3%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Remote Work Rate</span>
+                                    <span class="metric-value">18.5%</span>
+                                    <span class="metric-trend">-0.8%</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="table-body" id="attendanceTableBody">
-                             Attendance records will be populated by JavaScript 
+                        
+                        <div class="analytics-card">
+                            <div class="analytics-header">
+                                <h3>📊 Attendance Distribution</h3>
+                            </div>
+                            <div class="chart-container" id="attendanceDistributionChart">
+                                <div class="chart-placeholder">
+                                    <div class="chart-bars">
+                                        <div class="chart-bar" style="height: 85%; background: #10b981;">
+                                            <span class="bar-label">Present<br>85%</span>
+                                        </div>
+                                        <div class="chart-bar" style="height: 12%; background: #f59e0b;">
+                                            <span class="bar-label">Remote<br>12%</span>
+                                        </div>
+                                        <div class="chart-bar" style="height: 8%; background: #ef4444;">
+                                            <span class="bar-label">Absent<br>8%</span>
+                                        </div>
+                                        <div class="chart-bar" style="height: 5%; background: #8b5cf6;">
+                                            <span class="bar-label">Late<br>5%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="reports-section">
+                        <h3>📋 Generate Reports</h3>
+                        <div class="reports-grid">
+                            <div class="report-card">
+                                <div class="report-header">
+                                    <h3>Daily Attendance Report</h3>
+                                    <button class="report-generate-btn" data-report="daily">Generate</button>
+                                </div>
+                                <p>Comprehensive daily attendance summary with check-in/out times</p>
+                                <div class="report-meta">
+                                    <span>Last generated: Today</span>
+                                    <span class="report-status">91% attendance</span>
+                                </div>
+                            </div>
+                            
+                            <div class="report-card">
+                                <div class="report-header">
+                                    <h3>Monthly Attendance Report</h3>
+                                    <button class="report-generate-btn" data-report="monthly">Generate</button>
+                                </div>
+                                <p>Monthly attendance patterns, trends, and department comparisons</p>
+                                <div class="report-meta">
+                                    <span>Last generated: Yesterday</span>
+                                    <span class="report-status">March 2024</span>
+                                </div>
+                            </div>
+                            
+                            <div class="report-card">
+                                <div class="report-header">
+                                    <h3>Attendance Analytics Report</h3>
+                                    <button class="report-generate-btn" data-report="analytics">Generate</button>
+                                </div>
+                                <p>Advanced analytics with insights and recommendations</p>
+                                <div class="report-meta">
+                                    <span>Last generated: 2 days ago</span>
+                                    <span class="report-status">Insights available</span>
+                                </div>
+                            </div>
+                            
+                            <div class="report-card">
+                                <div class="report-header">
+                                    <h3>Department Comparison</h3>
+                                    <button class="report-generate-btn" data-report="department">Generate</button>
+                                </div>
+                                <p>Cross-department attendance analysis and benchmarking</p>
+                                <div class="report-meta">
+                                    <span>Last generated: 3 days ago</span>
+                                    <span class="report-status">6 departments</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Attendance Calendar View -->
-                <div class="attendance-calendar" id="attendanceCalendar" style="display: none;">
-                    <div class="calendar-header">
-                        <button class="calendar-nav" id="prevMonth">‹</button>
-                        <h3 id="calendarMonth">March 2024</h3>
-                        <button class="calendar-nav" id="nextMonth">›</button>
-                    </div>
-                    <div class="calendar-grid" id="calendarGrid">
-                         Calendar will be populated by JavaScript 
+                 <!-- CHANGE --> New Weekly Trends Tab 
+                <div class="tab-content" id="trends-tab">
+                    <div class="trends-overview">
+                        <div class="trend-card">
+                            <div class="trend-header">
+                                <h3>📅 Weekly Attendance Trend</h3>
+                                <div class="trend-controls">
+                                    <button class="trend-nav" id="prevWeek">‹</button>
+                                    <span class="current-week">March 18-24, 2024</span>
+                                    <button class="trend-nav" id="nextWeek">›</button>
+                                </div>
+                            </div>
+                            <div class="weekly-chart-container">
+                                <div class="weekly-chart">
+                                    <div class="chart-days">
+                                        <div class="day-column">
+                                            <div class="day-label">Mon</div>
+                                            <div class="day-bar" style="height: 92%;">
+                                                <span class="day-value">92%</span>
+                                            </div>
+                                            <div class="day-count">147/160</div>
+                                        </div>
+                                        <div class="day-column">
+                                            <div class="day-label">Tue</div>
+                                            <div class="day-bar" style="height: 89%;">
+                                                <span class="day-value">89%</span>
+                                            </div>
+                                            <div class="day-count">142/160</div>
+                                        </div>
+                                        <div class="day-column">
+                                            <div class="day-label">Wed</div>
+                                            <div class="day-bar" style="height: 94%;">
+                                                <span class="day-value">94%</span>
+                                            </div>
+                                            <div class="day-count">150/160</div>
+                                        </div>
+                                        <div class="day-column">
+                                            <div class="day-label">Thu</div>
+                                            <div class="day-bar" style="height: 87%;">
+                                                <span class="day-value">87%</span>
+                                            </div>
+                                            <div class="day-count">139/160</div>
+                                        </div>
+                                        <div class="day-column">
+                                            <div class="day-label">Fri</div>
+                                            <div class="day-bar" style="height: 85%;">
+                                                <span class="day-value">85%</span>
+                                            </div>
+                                            <div class="day-count">136/160</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="weekly-insights">
+                                <div class="insight-item">
+                                    <span class="insight-icon">📈</span>
+                                    <span class="insight-text">Wednesday shows highest attendance (94%)</span>
+                                </div>
+                                <div class="insight-item">
+                                    <span class="insight-icon">📉</span>
+                                    <span class="insight-text">Friday attendance typically drops by 7%</span>
+                                </div>
+                                <div class="insight-item">
+                                    <span class="insight-icon">⭐</span>
+                                    <span class="insight-text">Weekly average: 89.4% (+2.1% vs last week)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="trend-card">
+                            <div class="trend-header">
+                                <h3>🕐 Peak Hours Analysis</h3>
+                            </div>
+                            <div class="peak-hours-chart">
+                                <div class="hour-bars">
+                                    <div class="hour-bar" style="height: 20%;">
+                                        <span class="hour-label">8AM</span>
+                                        <span class="hour-value">20%</span>
+                                    </div>
+                                    <div class="hour-bar" style="height: 85%;">
+                                        <span class="hour-label">9AM</span>
+                                        <span class="hour-value">85%</span>
+                                    </div>
+                                    <div class="hour-bar" style="height: 95%;">
+                                        <span class="hour-label">10AM</span>
+                                        <span class="hour-value">95%</span>
+                                    </div>
+                                    <div class="hour-bar" style="height: 92%;">
+                                        <span class="hour-label">11AM</span>
+                                        <span class="hour-value">92%</span>
+                                    </div>
+                                    <div class="hour-bar" style="height: 75%;">
+                                        <span class="hour-label">12PM</span>
+                                        <span class="hour-value">75%</span>
+                                    </div>
+                                    <div class="hour-bar" style="height: 88%;">
+                                        <span class="hour-label">1PM</span>
+                                        <span class="hour-value">88%</span>
+                                    </div>
+                                    <div class="hour-bar" style="height: 90%;">
+                                        <span class="hour-label">2PM</span>
+                                        <span class="hour-value">90%</span>
+                                    </div>
+                                    <div class="hour-bar" style="height: 87%;">
+                                        <span class="hour-label">3PM</span>
+                                        <span class="hour-value">87%</span>
+                                    </div>
+                                    <div class="hour-bar" style="height: 82%;">
+                                        <span class="hour-label">4PM</span>
+                                        <span class="hour-value">82%</span>
+                                    </div>
+                                    <div class="hour-bar" style="height: 78%;">
+                                        <span class="hour-label">5PM</span>
+                                        <span class="hour-value">78%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="peak-insights">
+                                <p><strong>Peak Hours:</strong> 10AM - 11AM (95% presence)</p>
+                                <p><strong>Low Hours:</strong> 8AM - 9AM (20% early arrivals)</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- View Toggle -->
-                <div class="view-toggle">
-                    <button class="toggle-btn active" id="tableViewBtn">Table View</button>
-                    <button class="toggle-btn" id="calendarViewBtn">Calendar View</button>
+                 <!-- CHANGE --> New Department Overview Tab 
+                <div class="tab-content" id="departments-tab">
+                    <div class="department-overview">
+                        <div class="department-stats">
+                            <div class="dept-stat-card best">
+                                <div class="dept-icon">🏆</div>
+                                <div class="dept-content">
+                                    <h4>Best Performing</h4>
+                                    <p class="dept-name">Information Technology</p>
+                                    <p class="dept-rate">96.2% attendance</p>
+                                </div>
+                            </div>
+                            <div class="dept-stat-card needs-attention">
+                                <div class="dept-icon">⚠️</div>
+                                <div class="dept-content">
+                                    <h4>Needs Attention</h4>
+                                    <p class="dept-name">Sales</p>
+                                    <p class="dept-rate">82.1% attendance</p>
+                                </div>
+                            </div>
+                            <div class="dept-stat-card average">
+                                <div class="dept-icon">📊</div>
+                                <div class="dept-content">
+                                    <h4>Company Average</h4>
+                                    <p class="dept-name">All Departments</p>
+                                    <p class="dept-rate">89.4% attendance</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="department-comparison">
+                            <h3>📈 Department Attendance Comparison</h3>
+                            <div class="dept-comparison-chart">
+                                <div class="dept-row">
+                                    <span class="dept-label">Information Technology</span>
+                                    <div class="dept-bar-container">
+                                        <div class="dept-bar" style="width: 96.2%; background: #10b981;"></div>
+                                        <span class="dept-percentage">96.2%</span>
+                                    </div>
+                                </div>
+                                <div class="dept-row">
+                                    <span class="dept-label">Finance</span>
+                                    <div class="dept-bar-container">
+                                        <div class="dept-bar" style="width: 93.8%; background: #10b981;"></div>
+                                        <span class="dept-percentage">93.8%</span>
+                                    </div>
+                                </div>
+                                <div class="dept-row">
+                                    <span class="dept-label">Human Resources</span>
+                                    <div class="dept-bar-container">
+                                        <div class="dept-bar" style="width: 91.5%; background: #10b981;"></div>
+                                        <span class="dept-percentage">91.5%</span>
+                                    </div>
+                                </div>
+                                <div class="dept-row">
+                                    <span class="dept-label">Operations</span>
+                                    <div class="dept-bar-container">
+                                        <div class="dept-bar" style="width: 88.7%; background: #f59e0b;"></div>
+                                        <span class="dept-percentage">88.7%</span>
+                                    </div>
+                                </div>
+                                <div class="dept-row">
+                                    <span class="dept-label">Marketing</span>
+                                    <div class="dept-bar-container">
+                                        <div class="dept-bar" style="width: 85.3%; background: #f59e0b;"></div>
+                                        <span class="dept-percentage">85.3%</span>
+                                    </div>
+                                </div>
+                                <div class="dept-row">
+                                    <span class="dept-label">Sales</span>
+                                    <div class="dept-bar-container">
+                                        <div class="dept-bar" style="width: 82.1%; background: #ef4444;"></div>
+                                        <span class="dept-percentage">82.1%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="department-details">
+                            <h3>🏢 Department Details</h3>
+                            <div class="dept-details-grid">
+                                <div class="dept-detail-card">
+                                    <div class="dept-detail-header">
+                                        <h4>Information Technology</h4>
+                                        <span class="dept-trend positive">+2.3%</span>
+                                    </div>
+                                    <div class="dept-metrics">
+                                        <div class="metric">
+                                            <span class="metric-label">Total Employees</span>
+                                            <span class="metric-value">28</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Present Today</span>
+                                            <span class="metric-value">27</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Remote Workers</span>
+                                            <span class="metric-value">8</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Late Arrivals</span>
+                                            <span class="metric-value">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="dept-detail-card">
+                                    <div class="dept-detail-header">
+                                        <h4>Sales</h4>
+                                        <span class="dept-trend negative">-1.8%</span>
+                                    </div>
+                                    <div class="dept-metrics">
+                                        <div class="metric">
+                                            <span class="metric-label">Total Employees</span>
+                                            <span class="metric-value">35</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Present Today</span>
+                                            <span class="metric-value">29</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Remote Workers</span>
+                                            <span class="metric-value">12</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Late Arrivals</span>
+                                            <span class="metric-value">3</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="dept-detail-card">
+                                    <div class="dept-detail-header">
+                                        <h4>Marketing</h4>
+                                        <span class="dept-trend">+0.5%</span>
+                                    </div>
+                                    <div class="dept-metrics">
+                                        <div class="metric">
+                                            <span class="metric-label">Total Employees</span>
+                                            <span class="metric-value">22</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Present Today</span>
+                                            <span class="metric-value">19</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Remote Workers</span>
+                                            <span class="metric-value">5</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Late Arrivals</span>
+                                            <span class="metric-value">1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Calendar View Tab (existing content) 
+                <div class="tab-content" id="calendar-tab">
+                    <div class="attendance-calendar" id="attendanceCalendar">
+                        <div class="calendar-header">
+                            <button class="calendar-nav" id="prevMonth">‹</button>
+                            <h3 id="calendarMonth">March 2024</h3>
+                            <button class="calendar-nav" id="nextMonth">›</button>
+                        </div>
+                        <div class="calendar-grid" id="calendarGrid">
+                             Calendar will be populated by JavaScript 
+                        </div>
+                    </div>
                 </div>
             </section>
             
@@ -646,106 +1050,582 @@
                     </div>
                 </div>
                 
-                 Payroll Stats 
-                <div class="payroll-stats">
-                    <div class="stat-card">
-                        <div class="stat-icon">💰</div>
-                        <div class="stat-content">
-                            <h3>Total Payroll</h3>
-                            <p class="stat-number">$485,600</p>
-                            <span class="stat-change">This month</span>
+                 <!-- CHANGE --> Added comprehensive payroll tabs navigation 
+                <div class="payroll-tabs">
+                    <button class="tab-btn active" data-tab="overview">
+                        <span>📊</span>
+                        Overview
+                    </button>
+                    <button class="tab-btn" data-tab="employee-payroll">
+                        <span>👤</span>
+                        Employee Payroll
+                    </button>
+                    <button class="tab-btn" data-tab="department-payroll">
+                        <span>🏢</span>
+                        Department Payroll
+                    </button>
+                    <button class="tab-btn" data-tab="building-reports">
+                        <span>🏗️</span>
+                        Building Reports
+                    </button>
+                </div>
+
+                 Overview Tab (existing content) 
+                <div class="tab-content active" id="overview-tab">
+                     Payroll Stats 
+                    <div class="payroll-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-content">
+                                <h3>Total Payroll</h3>
+                                <p class="stat-number">$485,600</p>
+                                <span class="stat-change">This month</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-content">
+                                <h3>Employees Paid</h3>
+                                <p class="stat-number">142</p>
+                                <span class="stat-change">91% processed</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⏰</div>
+                            <div class="stat-content">
+                                <h3>Pending Payroll</h3>
+                                <p class="stat-number">14</p>
+                                <span class="stat-change negative">9% remaining</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📋</div>
+                            <div class="stat-content">
+                                <h3>Avg Salary</h3>
+                                <p class="stat-number">$3,420</p>
+                                <span class="stat-change positive">+5% from last month</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">👥</div>
-                        <div class="stat-content">
-                            <h3>Employees Paid</h3>
-                            <p class="stat-number">142</p>
-                            <span class="stat-change">91% processed</span>
+                    
+                     Payroll Filters 
+                    <div class="payroll-filters">
+                        <input type="text" placeholder="Search employees..." class="search-input" id="payrollSearch">
+                        <select class="filter-select" id="payrollDepartmentFilter">
+                            <option value="">All Departments</option>
+                            <option value="hr">Human Resources</option>
+                            <option value="it">Information Technology</option>
+                            <option value="finance">Finance</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="sales">Sales</option>
+                            <option value="operations">Operations</option>
+                        </select>
+                        <select class="filter-select" id="payrollStatusFilter">
+                            <option value="">All Status</option>
+                            <option value="processed">Processed</option>
+                            <option value="pending">Pending</option>
+                            <option value="hold">On Hold</option>
+                        </select>
+                        <select class="filter-select" id="payrollMonthFilter">
+                            <option value="">Select Month</option>
+                            <option value="2024-03">March 2024</option>
+                            <option value="2024-02">February 2024</option>
+                            <option value="2024-01">January 2024</option>
+                        </select>
+                    </div>
+                    
+                     Payroll Table 
+                    <div class="payroll-table-container">
+                        <div class="payroll-table">
+                            <div class="table-header">
+                                <span>Employee</span>
+                                <span>Department</span>
+                                <span>Basic Salary</span>
+                                <span>Allowances</span>
+                                <span>Deductions</span>
+                                <span>Net Salary</span>
+                                <span>Status</span>
+                                <span>Actions</span>
+                            </div>
+                            <div class="table-body" id="payrollTableBody">
+                                 Payroll records will be populated by JavaScript 
+                            </div>
                         </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">⏰</div>
-                        <div class="stat-content">
-                            <h3>Pending Payroll</h3>
-                            <p class="stat-number">14</p>
-                            <span class="stat-change negative">9% remaining</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">📋</div>
-                        <div class="stat-content">
-                            <h3>Avg Salary</h3>
-                            <p class="stat-number">$3,420</p>
-                            <span class="stat-change positive">+5% from last month</span>
+                    
+                     Payroll Summary 
+                    <div class="payroll-summary">
+                        <div class="summary-card">
+                            <h3>Payroll Summary</h3>
+                            <div class="summary-item">
+                                <span>Total Basic Salary:</span>
+                                <span class="amount">$420,000</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Total Allowances:</span>
+                                <span class="amount positive">+$85,600</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Total Deductions:</span>
+                                <span class="amount negative">-$20,000</span>
+                            </div>
+                            <div class="summary-item total">
+                                <span>Net Payroll:</span>
+                                <span class="amount">$485,600</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                 Payroll Filters 
-                <div class="payroll-filters">
-                    <input type="text" placeholder="Search employees..." class="search-input" id="payrollSearch">
-                    <select class="filter-select" id="payrollDepartmentFilter">
-                        <option value="">All Departments</option>
-                        <option value="hr">Human Resources</option>
-                        <option value="it">Information Technology</option>
-                        <option value="finance">Finance</option>
-                        <option value="marketing">Marketing</option>
-                        <option value="sales">Sales</option>
-                        <option value="operations">Operations</option>
-                    </select>
-                    <select class="filter-select" id="payrollStatusFilter">
-                        <option value="">All Status</option>
-                        <option value="processed">Processed</option>
-                        <option value="pending">Pending</option>
-                        <option value="hold">On Hold</option>
-                    </select>
-                    <select class="filter-select" id="payrollMonthFilter">
-                        <option value="">Select Month</option>
-                        <option value="2024-03">March 2024</option>
-                        <option value="2024-02">February 2024</option>
-                        <option value="2024-01">January 2024</option>
-                    </select>
-                </div>
-                
-                 Payroll Table 
-                <div class="payroll-table-container">
-                    <div class="payroll-table">
-                        <div class="table-header">
-                            <span>Employee</span>
-                            <span>Department</span>
-                            <span>Basic Salary</span>
-                            <span>Allowances</span>
-                            <span>Deductions</span>
-                            <span>Net Salary</span>
-                            <span>Status</span>
-                            <span>Actions</span>
+
+                 <!-- CHANGE --> Added Employee Payroll Tab 
+                <div class="tab-content" id="employee-payroll-tab">
+                    <div class="employee-payroll-header">
+                        <h3>Individual Employee Payroll</h3>
+                        <div class="payroll-actions">
+                            <button class="btn btn-secondary" id="bulkPayrollBtn">
+                                <span>📋</span>
+                                Bulk Process
+                            </button>
+                            <button class="btn btn-primary" id="generatePayslipBtn">
+                                <span>📄</span>
+                                Generate Payslip
+                            </button>
                         </div>
-                        <div class="table-body" id="payrollTableBody">
-                             Payroll records will be populated by JavaScript 
+                    </div>
+
+                    <div class="employee-payroll-filters">
+                        <input type="text" placeholder="Search employee..." class="search-input" id="employeePayrollSearch">
+                        <select class="filter-select" id="employeePayrollDept">
+                            <option value="">All Departments</option>
+                            <option value="hr">Human Resources</option>
+                            <option value="it">Information Technology</option>
+                            <option value="finance">Finance</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="sales">Sales</option>
+                            <option value="operations">Operations</option>
+                        </select>
+                        <select class="filter-select" id="employeePayrollPeriod">
+                            <option value="current">Current Month</option>
+                            <option value="2024-03">March 2024</option>
+                            <option value="2024-02">February 2024</option>
+                            <option value="2024-01">January 2024</option>
+                        </select>
+                    </div>
+
+                    <div class="employee-payroll-grid" id="employeePayrollGrid">
+                         Employee payroll cards will be populated by JavaScript 
+                    </div>
+
+                    <div class="employee-payroll-analytics">
+                        <div class="analytics-card">
+                            <h4>Salary Distribution</h4>
+                            <canvas id="salaryDistributionChart" width="400" height="200"></canvas>
+                        </div>
+                        <div class="analytics-card">
+                            <h4>Payroll Trends</h4>
+                            <canvas id="payrollTrendsChart" width="400" height="200"></canvas>
                         </div>
                     </div>
                 </div>
-                
-                 Payroll Summary 
-                <div class="payroll-summary">
-                    <div class="summary-card">
-                        <h3>Payroll Summary</h3>
-                        <div class="summary-item">
-                            <span>Total Basic Salary:</span>
-                            <span class="amount">$420,000</span>
+
+                 <!-- CHANGE --> Added Department Payroll Tab 
+                <div class="tab-content" id="department-payroll-tab">
+                    <div class="department-payroll-header">
+                        <h3>Department-wise Payroll Analysis</h3>
+                        <div class="payroll-actions">
+                            <button class="btn btn-secondary" id="compareDeptBtn">
+                                <span>📊</span>
+                                Compare Departments
+                            </button>
+                            <button class="btn btn-primary" id="exportDeptPayrollBtn">
+                                <span>📤</span>
+                                Export Report
+                            </button>
                         </div>
-                        <div class="summary-item">
-                            <span>Total Allowances:</span>
-                            <span class="amount positive">+$85,600</span>
+                    </div>
+
+                    <div class="department-payroll-stats">
+                        <div class="dept-stat-card">
+                            <div class="dept-icon">🏢</div>
+                            <div class="dept-info">
+                                <h4>Total Departments</h4>
+                                <p class="dept-number">6</p>
+                                <span class="dept-change">Active departments</span>
+                            </div>
                         </div>
-                        <div class="summary-item">
-                            <span>Total Deductions:</span>
-                            <span class="amount negative">-$20,000</span>
+                        <div class="dept-stat-card">
+                            <div class="dept-icon">💰</div>
+                            <div class="dept-info">
+                                <h4>Highest Payroll</h4>
+                                <p class="dept-number">$125,400</p>
+                                <span class="dept-change">IT Department</span>
+                            </div>
                         </div>
-                        <div class="summary-item total">
-                            <span>Net Payroll:</span>
-                            <span class="amount">$485,600</span>
+                        <div class="dept-stat-card">
+                            <div class="dept-icon">📈</div>
+                            <div class="dept-info">
+                                <h4>Average per Dept</h4>
+                                <p class="dept-number">$80,933</p>
+                                <span class="dept-change">Monthly average</span>
+                            </div>
+                        </div>
+                        <div class="dept-stat-card">
+                            <div class="dept-icon">⚖️</div>
+                            <div class="dept-info">
+                                <h4>Budget Variance</h4>
+                                <p class="dept-number">+2.3%</p>
+                                <span class="dept-change positive">Within budget</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="department-payroll-grid">
+                        <div class="dept-payroll-card">
+                            <div class="dept-card-header">
+                                <h4>Human Resources</h4>
+                                <span class="dept-badge hr">HR</span>
+                            </div>
+                            <div class="dept-payroll-details">
+                                <div class="dept-detail">
+                                    <span>Employees:</span>
+                                    <span>12</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Total Payroll:</span>
+                                    <span class="amount">$78,400</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Average Salary:</span>
+                                    <span>$6,533</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Budget Usage:</span>
+                                    <span class="positive">92%</span>
+                                </div>
+                            </div>
+                            <div class="dept-chart-container">
+                                <canvas id="hrPayrollChart" width="300" height="150"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="dept-payroll-card">
+                            <div class="dept-card-header">
+                                <h4>Information Technology</h4>
+                                <span class="dept-badge it">IT</span>
+                            </div>
+                            <div class="dept-payroll-details">
+                                <div class="dept-detail">
+                                    <span>Employees:</span>
+                                    <span>18</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Total Payroll:</span>
+                                    <span class="amount">$125,400</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Average Salary:</span>
+                                    <span>$6,967</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Budget Usage:</span>
+                                    <span class="positive">88%</span>
+                                </div>
+                            </div>
+                            <div class="dept-chart-container">
+                                <canvas id="itPayrollChart" width="300" height="150"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="dept-payroll-card">
+                            <div class="dept-card-header">
+                                <h4>Marketing</h4>
+                                <span class="dept-badge marketing">MKT</span>
+                            </div>
+                            <div class="dept-payroll-details">
+                                <div class="dept-detail">
+                                    <span>Employees:</span>
+                                    <span>15</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Total Payroll:</span>
+                                    <span class="amount">$89,200</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Average Salary:</span>
+                                    <span>$5,947</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Budget Usage:</span>
+                                    <span class="warning">96%</span>
+                                </div>
+                            </div>
+                            <div class="dept-chart-container">
+                                <canvas id="marketingPayrollChart" width="300" height="150"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="dept-payroll-card">
+                            <div class="dept-card-header">
+                                <h4>Sales</h4>
+                                <span class="dept-badge sales">SALES</span>
+                            </div>
+                            <div class="dept-payroll-details">
+                                <div class="dept-detail">
+                                    <span>Employees:</span>
+                                    <span>22</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Total Payroll:</span>
+                                    <span class="amount">$98,600</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Average Salary:</span>
+                                    <span>$4,482</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Budget Usage:</span>
+                                    <span class="positive">85%</span>
+                                </div>
+                            </div>
+                            <div class="dept-chart-container">
+                                <canvas id="salesPayrollChart" width="300" height="150"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="dept-payroll-card">
+                            <div class="dept-card-header">
+                                <h4>Finance</h4>
+                                <span class="dept-badge finance">FIN</span>
+                            </div>
+                            <div class="dept-payroll-details">
+                                <div class="dept-detail">
+                                    <span>Employees:</span>
+                                    <span>8</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Total Payroll:</span>
+                                    <span class="amount">$64,800</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Average Salary:</span>
+                                    <span>$8,100</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Budget Usage:</span>
+                                    <span class="positive">90%</span>
+                                </div>
+                            </div>
+                            <div class="dept-chart-container">
+                                <canvas id="financePayrollChart" width="300" height="150"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="dept-payroll-card">
+                            <div class="dept-card-header">
+                                <h4>Operations</h4>
+                                <span class="dept-badge operations">OPS</span>
+                            </div>
+                            <div class="dept-payroll-details">
+                                <div class="dept-detail">
+                                    <span>Employees:</span>
+                                    <span>25</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Total Payroll:</span>
+                                    <span class="amount">$87,500</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Average Salary:</span>
+                                    <span>$3,500</span>
+                                </div>
+                                <div class="dept-detail">
+                                    <span>Budget Usage:</span>
+                                    <span class="positive">82%</span>
+                                </div>
+                            </div>
+                            <div class="dept-chart-container">
+                                <canvas id="operationsPayrollChart" width="300" height="150"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="department-comparison">
+                        <div class="comparison-header">
+                            <h4>Department Comparison</h4>
+                            <div class="comparison-controls">
+                                <select id="comparisonMetric">
+                                    <option value="total">Total Payroll</option>
+                                    <option value="average">Average Salary</option>
+                                    <option value="budget">Budget Usage</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="comparison-chart">
+                            <canvas id="departmentComparisonChart" width="800" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- CHANGE --> Added Building Reports Tab 
+                <div class="tab-content" id="building-reports-tab">
+                    <div class="building-reports-header">
+                        <h3>Organization-wide Payroll Reports</h3>
+                        <div class="payroll-actions">
+                            <button class="btn btn-secondary" id="scheduleReportBtn">
+                                <span>⏰</span>
+                                Schedule Report
+                            </button>
+                            <button class="btn btn-primary" id="generateBuildingReportBtn">
+                                <span>📊</span>
+                                Generate Report
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="building-overview-stats">
+                        <div class="building-stat-card">
+                            <div class="building-icon">🏗️</div>
+                            <div class="building-info">
+                                <h4>Total Organization Payroll</h4>
+                                <p class="building-number">$485,600</p>
+                                <span class="building-change">Current month</span>
+                            </div>
+                        </div>
+                        <div class="building-stat-card">
+                            <div class="building-icon">👥</div>
+                            <div class="building-info">
+                                <h4>Total Employees</h4>
+                                <p class="building-number">142</p>
+                                <span class="building-change">Across all departments</span>
+                            </div>
+                        </div>
+                        <div class="building-stat-card">
+                            <div class="building-icon">💼</div>
+                            <div class="building-info">
+                                <h4>Payroll Growth</h4>
+                                <p class="building-number">+8.2%</p>
+                                <span class="building-change positive">Year over year</span>
+                            </div>
+                        </div>
+                        <div class="building-stat-card">
+                            <div class="building-icon">💰</div>
+                            <div class="building-info">
+                                <h4>Annual Projection</h4>
+                                <p class="building-number">$5.8M</p>
+                                <span class="building-change">Based on current trends</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="building-reports-grid">
+                        <div class="report-section">
+                            <h4>Executive Summary</h4>
+                            <div class="executive-summary">
+                                <div class="summary-metric">
+                                    <span class="metric-label">Total Annual Cost:</span>
+                                    <span class="metric-value">$5,827,200</span>
+                                </div>
+                                <div class="summary-metric">
+                                    <span class="metric-label">Average Employee Cost:</span>
+                                    <span class="metric-value">$41,050</span>
+                                </div>
+                                <div class="summary-metric">
+                                    <span class="metric-label">Highest Department:</span>
+                                    <span class="metric-value">IT ($125,400/month)</span>
+                                </div>
+                                <div class="summary-metric">
+                                    <span class="metric-label">Budget Efficiency:</span>
+                                    <span class="metric-value positive">89.2%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-section">
+                            <h4>Payroll Breakdown</h4>
+                            <div class="payroll-breakdown-chart">
+                                <canvas id="buildingPayrollBreakdownChart" width="400" height="300"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="report-section">
+                            <h4>Historical Trends</h4>
+                            <div class="historical-trends-chart">
+                                <canvas id="historicalTrendsChart" width="600" height="300"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="report-section">
+                            <h4>Cost Analysis</h4>
+                            <div class="cost-analysis">
+                                <div class="cost-item">
+                                    <span class="cost-label">Base Salaries:</span>
+                                    <span class="cost-value">$420,000 (86.5%)</span>
+                                    <div class="cost-bar">
+                                        <div class="cost-fill" style="width: 86.5%"></div>
+                                    </div>
+                                </div>
+                                <div class="cost-item">
+                                    <span class="cost-label">Benefits & Allowances:</span>
+                                    <span class="cost-value">$45,600 (9.4%)</span>
+                                    <div class="cost-bar">
+                                        <div class="cost-fill" style="width: 9.4%"></div>
+                                    </div>
+                                </div>
+                                <div class="cost-item">
+                                    <span class="cost-label">Bonuses:</span>
+                                    <span class="cost-value">$15,000 (3.1%)</span>
+                                    <div class="cost-bar">
+                                        <div class="cost-fill" style="width: 3.1%"></div>
+                                    </div>
+                                </div>
+                                <div class="cost-item">
+                                    <span class="cost-label">Overtime:</span>
+                                    <span class="cost-value">$5,000 (1.0%)</span>
+                                    <div class="cost-bar">
+                                        <div class="cost-fill" style="width: 1.0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-section">
+                            <h4>Compliance & Audit</h4>
+                            <div class="compliance-status">
+                                <div class="compliance-item">
+                                    <span class="compliance-icon">✅</span>
+                                    <span class="compliance-text">Tax Compliance: Up to date</span>
+                                </div>
+                                <div class="compliance-item">
+                                    <span class="compliance-icon">✅</span>
+                                    <span class="compliance-text">Labor Law: Compliant</span>
+                                </div>
+                                <div class="compliance-item">
+                                    <span class="compliance-icon">⚠️</span>
+                                    <span class="compliance-text">Audit Review: Due in 30 days</span>
+                                </div>
+                                <div class="compliance-item">
+                                    <span class="compliance-icon">✅</span>
+                                    <span class="compliance-text">Benefits Administration: Current</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-section">
+                            <h4>Recommendations</h4>
+                            <div class="recommendations">
+                                <div class="recommendation-item">
+                                    <span class="rec-priority high">High</span>
+                                    <span class="rec-text">Review IT department salary structure for market competitiveness</span>
+                                </div>
+                                <div class="recommendation-item">
+                                    <span class="rec-priority medium">Medium</span>
+                                    <span class="rec-text">Implement performance-based bonus structure for Sales team</span>
+                                </div>
+                                <div class="recommendation-item">
+                                    <span class="rec-priority low">Low</span>
+                                    <span class="rec-text">Consider cost-of-living adjustments for next fiscal year</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2278,6 +3158,6 @@ United States</textarea>
         </div>
     </div>
 
-    <script src="public/assets/js/dashboard.js"></script>
+    <script src="public/assets/js/dashboard_demo.js"></script>
 </body>
 </html>
