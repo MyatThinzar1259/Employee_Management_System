@@ -1,0 +1,2283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DreamHR</title>
+    <link rel="stylesheet" href="public/assets/css/dashboard_demo.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+         Sidebar 
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">🌸</span>
+                    <h2>DreamHR</h2>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="overview">
+                    <span class="nav-icon">📊</span>
+                    <span>Overview</span>
+                </a>
+                <a href="#" class="nav-item" data-section="employees">
+                    <span class="nav-icon">👥</span>
+                    <span>Employees</span>
+                </a>
+                <!-- Added new sidebar menu items -->
+                <a href="#" class="nav-item" data-section="roles">
+                    <span class="nav-icon">🎭</span>
+                    <span>Roles</span>
+                </a>
+                <a href="#" class="nav-item" data-section="departments">
+                    <span class="nav-icon">🏢</span>
+                    <span>Departments</span>
+                </a>
+                <a href="#" class="nav-item" data-section="assets">
+                    <span class="nav-icon">💼</span>
+                    <span>Assets</span>
+                </a>
+                <a href="#" class="nav-item" data-section="holidays">
+                    <span class="nav-icon">🎉</span>
+                    <span>Holidays</span>
+                </a>
+                <a href="#" class="nav-item" data-section="leaves">
+                    <span class="nav-icon">🏖️</span>
+                    <span>Leaves</span>
+                </a>
+                <a href="#" class="nav-item" data-section="certification">
+                    <span class="nav-icon">🏆</span>
+                    <span>Certification</span>
+                </a>
+                <a href="#" class="nav-item" data-section="skills">
+                    <span class="nav-icon">⚡</span>
+                    <span>Skills</span>
+                </a>
+                <a href="#" class="nav-item" data-section="attendance">
+                    <span class="nav-icon">📅</span>
+                    <span>Attendance</span>
+                </a>
+                <a href="#" class="nav-item" data-section="payroll">
+                    <span class="nav-icon">💰</span>
+                    <span>Payroll</span>
+                </a>
+                <a href="#" class="nav-item" data-section="reports">
+                    <span class="nav-icon">📈</span>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="nav-item" data-section="settings">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-details">
+                        <span class="user-name" id="userName">User</span>
+                        <span class="user-role" id="userRole">Employee</span>
+                    </div>
+                </div>
+                <button class="logout-btn" id="logoutBtn">
+                    <span>🚪</span>
+                    Logout
+                </button>
+            </div>
+        </aside>
+        
+         Main Content 
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Added mobile menu toggle button -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <header class="main-header">
+                <div class="header-left">
+                    <h1 id="pageTitle">Dashboard Overview</h1>
+                    <p id="pageSubtitle">Welcome back! Here's what's happening today.</p>
+                </div>
+                <div class="header-right">
+                    <button class="notification-btn">
+                        <span>🔔</span>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="date-display" id="currentDate"></div>
+                </div>
+            </header>
+            
+             Overview Section 
+            <section id="overview-section" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-content">
+                            <h3>Total Employees</h3>
+                            <p class="stat-number">156</p>
+                            <span class="stat-change positive">+12 this month</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <h3>Present Today</h3>
+                            <p class="stat-number">142</p>
+                            <span class="stat-change">91% attendance</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏠</div>
+                        <div class="stat-content">
+                            <h3>Remote Workers</h3>
+                            <p class="stat-number">28</p>
+                            <span class="stat-change">18% of workforce</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📋</div>
+                        <div class="stat-content">
+                            <h3>Pending Tasks</h3>
+                            <p class="stat-number">7</p>
+                            <span class="stat-change negative">2 overdue</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Recent Activities</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <span class="activity-icon">👤</span>
+                                <div class="activity-content">
+                                    <p>New employee Sarah Johnson joined Marketing</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-icon">📅</span>
+                                <div class="activity-content">
+                                    <p>Team meeting scheduled for tomorrow 2 PM</p>
+                                    <span class="activity-time">4 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-icon">💰</span>
+                                <div class="activity-content">
+                                    <p>Payroll processed for March 2024</p>
+                                    <span class="activity-time">1 day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3>Quick Actions</h3>
+                        <div class="quick-actions">
+                            <button class="action-btn">
+                                <span>➕</span>
+                                Add Employee
+                            </button>
+                            <button class="action-btn">
+                                <span>📊</span>
+                                Generate Report
+                            </button>
+                            <button class="action-btn">
+                                <span>📧</span>
+                                Send Announcement
+                            </button>
+                            <button class="action-btn">
+                                <span>⏰</span>
+                                Schedule Meeting
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+             Employees Section 
+            <section id="employees-section" class="content-section">
+                <div class="section-header">
+                    <h2>Employee Management</h2>
+                    <button class="btn btn-primary" id="addEmployeeBtn">
+                        <span>➕</span>
+                        Add Employee
+                    </button>
+                </div>
+                
+                <div class="employee-filters">
+                    <input type="text" placeholder="Search employees..." class="search-input" id="employeeSearch">
+                    <select class="filter-select" id="departmentFilter">
+                        <option value="">All Departments</option>
+                        <option value="hr">Human Resources</option>
+                        <option value="it">Information Technology</option>
+                        <option value="finance">Finance</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="sales">Sales</option>
+                        <option value="operations">Operations</option>
+                    </select>
+                </div>
+                
+                <div class="employee-grid" id="employeeGrid">
+                     Employee cards will be populated by JavaScript 
+                </div>
+                
+                 <!-- Added pagination section at bottom of employee section -->
+                <div class="pagination-container" id="paginationContainer">
+                    <div class="pagination-info">
+                        <span id="paginationInfo">Showing 1-6 of 12 employees</span>
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="pagination-btn" id="prevBtn" disabled>
+                            <span>←</span>
+                            Previous
+                        </button>
+                        <div class="pagination-numbers" id="paginationNumbers">
+                             Page numbers will be generated by JavaScript 
+                        </div>
+                        <button class="pagination-btn" id="nextBtn">
+                            Next
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+             Other sections will be added here 
+            <!-- Added new content sections -->
+            <!-- Roles Section -->
+            <section id="roles-section" class="content-section">
+                <div class="section-header">
+                    <h2>Role Management</h2>
+                    <button class="btn btn-primary" id="addRoleBtn">
+                        <span>➕</span>
+                        Add Role
+                    </button>
+                </div>
+                <div class="roles-grid">
+                    <div class="role-card">
+                        <div class="role-header">
+                            <span class="role-icon">👑</span>
+                            <h3>Administrator</h3>
+                        </div>
+                        <p>Full system access and management capabilities</p>
+                        <div class="role-permissions">
+                            <span class="permission-tag">All Permissions</span>
+                        </div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-header">
+                            <span class="role-icon">👨‍💼</span>
+                            <h3>Manager</h3>
+                        </div>
+                        <p>Team management and reporting access</p>
+                        <div class="role-permissions">
+                            <span class="permission-tag">Team Management</span>
+                            <span class="permission-tag">Reports</span>
+                        </div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-header">
+                            <span class="role-icon">👤</span>
+                            <h3>Employee</h3>
+                        </div>
+                        <p>Basic access to personal information and tasks</p>
+                        <div class="role-permissions">
+                            <span class="permission-tag">Profile</span>
+                            <span class="permission-tag">Tasks</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Departments Section -->
+            <section id="departments-section" class="content-section">
+                <div class="section-header">
+                    <h2>Department Management</h2>
+                    <button class="btn btn-primary" id="addDepartmentBtn">
+                        <span>➕</span>
+                        Add Department
+                    </button>
+                </div>
+                <div class="departments-grid">
+                    <div class="department-card">
+                        <div class="department-icon">💻</div>
+                        <h3>Information Technology</h3>
+                        <p>15 employees</p>
+                        <div class="department-stats">
+                            <span>Budget: $250,000</span>
+                            <span>Head: John Smith</span>
+                        </div>
+                    </div>
+                    <div class="department-card">
+                        <div class="department-icon">👥</div>
+                        <h3>Human Resources</h3>
+                        <p>8 employees</p>
+                        <div class="department-stats">
+                            <span>Budget: $180,000</span>
+                            <span>Head: Sarah Wilson</span>
+                        </div>
+                    </div>
+                    <div class="department-card">
+                        <div class="department-icon">📊</div>
+                        <h3>Marketing</h3>
+                        <p>12 employees</p>
+                        <div class="department-stats">
+                            <span>Budget: $200,000</span>
+                            <span>Head: Mike Johnson</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Assets Section -->
+            <section id="assets-section" class="content-section">
+                <div class="section-header">
+                    <h2>Asset Management</h2>
+                    <button class="btn btn-primary" id="addAssetBtn">
+                        <span>➕</span>
+                        Add Asset
+                    </button>
+                </div>
+                <div class="assets-table">
+                    <div class="table-header">
+                        <span>Asset Name</span>
+                        <span>Type</span>
+                        <span>Assigned To</span>
+                        <span>Status</span>
+                        <span>Purchase Date</span>
+                    </div>
+                    <div class="table-row">
+                        <span>MacBook Pro 16"</span>
+                        <span>Laptop</span>
+                        <span>John Doe</span>
+                        <span class="status active">Active</span>
+                        <span>2023-01-15</span>
+                    </div>
+                    <div class="table-row">
+                        <span>Dell Monitor 27"</span>
+                        <span>Monitor</span>
+                        <span>Sarah Johnson</span>
+                        <span class="status active">Active</span>
+                        <span>2023-02-20</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Holidays Section -->
+            <section id="holidays-section" class="content-section">
+                <div class="section-header">
+                    <h2>Holiday Management</h2>
+                    <button class="btn btn-primary" id="addHolidayBtn">
+                        <span>➕</span>
+                        Add Holiday
+                    </button>
+                </div>
+                <div class="holidays-calendar">
+                    <div class="holiday-item">
+                        <div class="holiday-date">
+                            <span class="month">Jan</span>
+                            <span class="day">01</span>
+                        </div>
+                        <div class="holiday-info">
+                            <h3>New Year's Day</h3>
+                            <p>Public Holiday</p>
+                        </div>
+                    </div>
+                    <div class="holiday-item">
+                        <div class="holiday-date">
+                            <span class="month">Jul</span>
+                            <span class="day">04</span>
+                        </div>
+                        <div class="holiday-info">
+                            <h3>Independence Day</h3>
+                            <p>Public Holiday</p>
+                        </div>
+                    </div>
+                    <div class="holiday-item">
+                        <div class="holiday-date">
+                            <span class="month">Dec</span>
+                            <span class="day">25</span>
+                        </div>
+                        <div class="holiday-info">
+                            <h3>Christmas Day</h3>
+                            <p>Public Holiday</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leaves Section -->
+            <section id="leaves-section" class="content-section">
+                <div class="section-header">
+                    <h2>Leave Management</h2>
+                    <button class="btn btn-primary" id="requestLeaveBtn">
+                        <span>➕</span>
+                        Request Leave
+                    </button>
+                </div>
+                <div class="leave-requests">
+                    <div class="leave-card">
+                        <div class="leave-header">
+                            <div class="employee-info">
+                                <span class="employee-name">John Doe</span>
+                                <span class="leave-type">Annual Leave</span>
+                            </div>
+                            <span class="leave-status pending">Pending</span>
+                        </div>
+                        <div class="leave-details">
+                            <span>From: March 15, 2024</span>
+                            <span>To: March 20, 2024</span>
+                            <span>Duration: 5 days</span>
+                        </div>
+                    </div>
+                    <div class="leave-card">
+                        <div class="leave-header">
+                            <div class="employee-info">
+                                <span class="employee-name">Sarah Johnson</span>
+                                <span class="leave-type">Sick Leave</span>
+                            </div>
+                            <span class="leave-status approved">Approved</span>
+                        </div>
+                        <div class="leave-details">
+                            <span>From: March 10, 2024</span>
+                            <span>To: March 12, 2024</span>
+                            <span>Duration: 2 days</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certification Section -->
+            <section id="certification-section" class="content-section">
+                <div class="section-header">
+                    <h2>Certification Management</h2>
+                    <button class="btn btn-primary" id="addCertificationBtn">
+                        <span>➕</span>
+                        Add Certification
+                    </button>
+                </div>
+                <div class="certifications-grid">
+                    <div class="certification-card">
+                        <div class="cert-icon">🏆</div>
+                        <h3>AWS Solutions Architect</h3>
+                        <p>John Smith - IT Department</p>
+                        <div class="cert-details">
+                            <span>Issued: Jan 2024</span>
+                            <span>Expires: Jan 2027</span>
+                        </div>
+                        <span class="cert-status valid">Valid</span>
+                    </div>
+                    <div class="certification-card">
+                        <div class="cert-icon">📜</div>
+                        <h3>Project Management Professional</h3>
+                        <p>Sarah Wilson - HR Department</p>
+                        <div class="cert-details">
+                            <span>Issued: Dec 2023</span>
+                            <span>Expires: Dec 2026</span>
+                        </div>
+                        <span class="cert-status valid">Valid</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills-section" class="content-section">
+                <div class="section-header">
+                    <h2>Skills Management</h2>
+                    <button class="btn btn-primary" id="addSkillBtn">
+                        <span>➕</span>
+                        Add Skill
+                    </button>
+                </div>
+                <div class="skills-overview">
+                    <div class="skill-category">
+                        <h3>Technical Skills</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">AWS</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Soft Skills</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Communication</span>
+                            <span class="skill-tag">Problem Solving</span>
+                            <span class="skill-tag">Team Work</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Attendance Section -->
+            <section id="attendance-section" class="content-section">
+                <div class="section-header">
+                    <h2>Attendance Management</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary" id="exportAttendanceBtn">
+                            <span>📊</span>
+                            Export Report
+                        </button>
+                        <button class="btn btn-primary" id="markAttendanceBtn">
+                            <span>✅</span>
+                            Mark Attendance
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="attendance-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-content">
+                            <h3>Present Today</h3>
+                            <p class="stat-number" id="presentToday">142</p>
+                            <span class="stat-change">91% attendance</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏠</div>
+                        <div class="stat-content">
+                            <h3>Remote Workers</h3>
+                            <p class="stat-number" id="remoteToday">28</p>
+                            <span class="stat-change">18% of workforce</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⏰</div>
+                        <div class="stat-content">
+                            <h3>Late Arrivals</h3>
+                            <p class="stat-number" id="lateToday">5</p>
+                            <span class="stat-change negative">3% of present</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🚫</div>
+                        <div class="stat-content">
+                            <h3>Absent Today</h3>
+                            <p class="stat-number" id="absentToday">14</p>
+                            <span class="stat-change">9% of workforce</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Attendance Filters -->
+                <div class="attendance-filters">
+                    <input type="text" placeholder="Search employees..." class="search-input" id="attendanceSearch">
+                    <select class="filter-select" id="attendanceStatusFilter">
+                        <option value="">All Status</option>
+                        <option value="present">Present</option>
+                        <option value="absent">Absent</option>
+                        <option value="late">Late</option>
+                        <option value="remote">Remote</option>
+                    </select>
+                    <select class="filter-select" id="attendanceDepartmentFilter">
+                        <option value="">All Departments</option>
+                        <option value="hr">Human Resources</option>
+                        <option value="it">Information Technology</option>
+                        <option value="finance">Finance</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="sales">Sales</option>
+                        <option value="operations">Operations</option>
+                    </select>
+                    <input type="date" class="date-input" id="attendanceDate" value="">
+                </div>
+                
+                <!-- Attendance Table -->
+                <div class="attendance-table-container">
+                    <div class="attendance-table">
+                        <div class="table-header">
+                            <span>Employee</span>
+                            <span>Department</span>
+                            <span>Check In</span>
+                            <span>Check Out</span>
+                            <span>Hours</span>
+                            <span>Status</span>
+                            <span>Actions</span>
+                        </div>
+                        <div class="table-body" id="attendanceTableBody">
+                             Attendance records will be populated by JavaScript 
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Attendance Calendar View -->
+                <div class="attendance-calendar" id="attendanceCalendar" style="display: none;">
+                    <div class="calendar-header">
+                        <button class="calendar-nav" id="prevMonth">‹</button>
+                        <h3 id="calendarMonth">March 2024</h3>
+                        <button class="calendar-nav" id="nextMonth">›</button>
+                    </div>
+                    <div class="calendar-grid" id="calendarGrid">
+                         Calendar will be populated by JavaScript 
+                    </div>
+                </div>
+                
+                <!-- View Toggle -->
+                <div class="view-toggle">
+                    <button class="toggle-btn active" id="tableViewBtn">Table View</button>
+                    <button class="toggle-btn" id="calendarViewBtn">Calendar View</button>
+                </div>
+            </section>
+            
+            <section id="payroll-section" class="content-section">
+                <div class="section-header">
+                    <h2>Payroll Management</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary" id="exportPayrollBtn">
+                            <span>📊</span>
+                            Export Report
+                        </button>
+                        <button class="btn btn-primary" id="processPayrollBtn">
+                            <span>💰</span>
+                            Process Payroll
+                        </button>
+                    </div>
+                </div>
+                
+                 Payroll Stats 
+                <div class="payroll-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-content">
+                            <h3>Total Payroll</h3>
+                            <p class="stat-number">$485,600</p>
+                            <span class="stat-change">This month</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-content">
+                            <h3>Employees Paid</h3>
+                            <p class="stat-number">142</p>
+                            <span class="stat-change">91% processed</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⏰</div>
+                        <div class="stat-content">
+                            <h3>Pending Payroll</h3>
+                            <p class="stat-number">14</p>
+                            <span class="stat-change negative">9% remaining</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📋</div>
+                        <div class="stat-content">
+                            <h3>Avg Salary</h3>
+                            <p class="stat-number">$3,420</p>
+                            <span class="stat-change positive">+5% from last month</span>
+                        </div>
+                    </div>
+                </div>
+                
+                 Payroll Filters 
+                <div class="payroll-filters">
+                    <input type="text" placeholder="Search employees..." class="search-input" id="payrollSearch">
+                    <select class="filter-select" id="payrollDepartmentFilter">
+                        <option value="">All Departments</option>
+                        <option value="hr">Human Resources</option>
+                        <option value="it">Information Technology</option>
+                        <option value="finance">Finance</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="sales">Sales</option>
+                        <option value="operations">Operations</option>
+                    </select>
+                    <select class="filter-select" id="payrollStatusFilter">
+                        <option value="">All Status</option>
+                        <option value="processed">Processed</option>
+                        <option value="pending">Pending</option>
+                        <option value="hold">On Hold</option>
+                    </select>
+                    <select class="filter-select" id="payrollMonthFilter">
+                        <option value="">Select Month</option>
+                        <option value="2024-03">March 2024</option>
+                        <option value="2024-02">February 2024</option>
+                        <option value="2024-01">January 2024</option>
+                    </select>
+                </div>
+                
+                 Payroll Table 
+                <div class="payroll-table-container">
+                    <div class="payroll-table">
+                        <div class="table-header">
+                            <span>Employee</span>
+                            <span>Department</span>
+                            <span>Basic Salary</span>
+                            <span>Allowances</span>
+                            <span>Deductions</span>
+                            <span>Net Salary</span>
+                            <span>Status</span>
+                            <span>Actions</span>
+                        </div>
+                        <div class="table-body" id="payrollTableBody">
+                             Payroll records will be populated by JavaScript 
+                        </div>
+                    </div>
+                </div>
+                
+                 Payroll Summary 
+                <div class="payroll-summary">
+                    <div class="summary-card">
+                        <h3>Payroll Summary</h3>
+                        <div class="summary-item">
+                            <span>Total Basic Salary:</span>
+                            <span class="amount">$420,000</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Total Allowances:</span>
+                            <span class="amount positive">+$85,600</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Total Deductions:</span>
+                            <span class="amount negative">-$20,000</span>
+                        </div>
+                        <div class="summary-item total">
+                            <span>Net Payroll:</span>
+                            <span class="amount">$485,600</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="reports-section" class="content-section">
+                 Replaced placeholder with comprehensive reports section 
+                <div class="section-header">
+                    <h2>Reports & Analytics</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary" id="scheduleReportBtn">
+                            <span>📅</span>
+                            Schedule Report
+                        </button>
+                        <button class="btn btn-primary" id="generateReportBtn">
+                            <span>📊</span>
+                            Generate Report
+                        </button>
+                    </div>
+                </div>
+                
+                 Report Categories 
+                <div class="report-categories">
+                    <div class="category-card active" data-category="overview">
+                        <div class="category-icon">📊</div>
+                        <h3>Overview Reports</h3>
+                        <p>General analytics and summaries</p>
+                    </div>
+                    <div class="category-card" data-category="employee">
+                        <div class="category-icon">👥</div>
+                        <h3>Employee Reports</h3>
+                        <p>Staff performance and details</p>
+                    </div>
+                    <div class="category-card" data-category="attendance">
+                        <div class="category-icon">📅</div>
+                        <h3>Attendance Reports</h3>
+                        <p>Time tracking and presence</p>
+                    </div>
+                    <div class="category-card" data-category="payroll">
+                        <div class="category-icon">💰</div>
+                        <h3>Payroll Reports</h3>
+                        <p>Salary and compensation data</p>
+                    </div>
+                </div>
+                
+                 Report Filters 
+                <div class="report-filters">
+                    <select class="filter-select" id="reportDepartmentFilter">
+                        <option value="">All Departments</option>
+                        <option value="hr">Human Resources</option>
+                        <option value="it">Information Technology</option>
+                        <option value="finance">Finance</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="sales">Sales</option>
+                        <option value="operations">Operations</option>
+                    </select>
+                    <select class="filter-select" id="reportPeriodFilter">
+                        <option value="current-month">Current Month</option>
+                        <option value="last-month">Last Month</option>
+                        <option value="current-quarter">Current Quarter</option>
+                        <option value="last-quarter">Last Quarter</option>
+                        <option value="current-year">Current Year</option>
+                        <option value="custom">Custom Range</option>
+                    </select>
+                    <div class="date-range" id="customDateRange" style="display: none;">
+                        <input type="date" id="reportStartDate" class="date-input">
+                        <span>to</span>
+                        <input type="date" id="reportEndDate" class="date-input">
+                    </div>
+                </div>
+                
+                 Overview Reports 
+                <div class="report-content" id="overview-reports">
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Employee Summary</h3>
+                                <button class="report-action" data-report="employee-summary">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Comprehensive overview of all employees, departments, and roles</p>
+                            <div class="report-stats">
+                                <span>Last generated: 2 days ago</span>
+                                <span>156 employees</span>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Department Analysis</h3>
+                                <button class="report-action" data-report="department-analysis">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Department-wise breakdown of employees, budgets, and performance</p>
+                            <div class="report-stats">
+                                <span>Last generated: 1 week ago</span>
+                                <span>6 departments</span>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Monthly Dashboard</h3>
+                                <button class="report-action" data-report="monthly-dashboard">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Key metrics and KPIs for the current month</p>
+                            <div class="report-stats">
+                                <span>Last generated: Yesterday</span>
+                                <span>March 2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Compliance Report</h3>
+                                <button class="report-action" data-report="compliance-report">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Regulatory compliance and audit trail information</p>
+                            <div class="report-stats">
+                                <span>Last generated: 3 days ago</span>
+                                <span>All compliant</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Employee Reports 
+                <div class="report-content" id="employee-reports" style="display: none;">
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Employee Directory</h3>
+                                <button class="report-action" data-report="employee-directory">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Complete list of employees with contact information</p>
+                            <div class="report-stats">
+                                <span>Last generated: Today</span>
+                                <span>156 employees</span>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Performance Review</h3>
+                                <button class="report-action" data-report="performance-review">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Employee performance ratings and feedback summary</p>
+                            <div class="report-stats">
+                                <span>Last generated: 1 week ago</span>
+                                <span>Q1 2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Skills Matrix</h3>
+                                <button class="report-action" data-report="skills-matrix">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Employee skills and competency mapping</p>
+                            <div class="report-stats">
+                                <span>Last generated: 5 days ago</span>
+                                <span>45 skills tracked</span>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Training Report</h3>
+                                <button class="report-action" data-report="training-report">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Training completion and certification status</p>
+                            <div class="report-stats">
+                                <span>Last generated: 3 days ago</span>
+                                <span>23 certifications</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Attendance Reports 
+                <div class="report-content" id="attendance-reports" style="display: none;">
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Daily Attendance</h3>
+                                <button class="report-action" data-report="daily-attendance">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Daily attendance summary with check-in/out times</p>
+                            <div class="report-stats">
+                                <span>Last generated: Today</span>
+                                <span>91% attendance</span>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Monthly Attendance</h3>
+                                <button class="report-action" data-report="monthly-attendance">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Monthly attendance patterns and trends</p>
+                            <div class="report-stats">
+                                <span>Last generated: Yesterday</span>
+                                <span>March 2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Overtime Report</h3>
+                                <button class="report-action" data-report="overtime-report">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Overtime hours and compensation analysis</p>
+                            <div class="report-stats">
+                                <span>Last generated: 2 days ago</span>
+                                <span>245 OT hours</span>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Leave Analysis</h3>
+                                <button class="report-action" data-report="leave-analysis">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Leave patterns, balances, and utilization</p>
+                            <div class="report-stats">
+                                <span>Last generated: 4 days ago</span>
+                                <span>23 pending requests</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Payroll Reports 
+                <div class="report-content" id="payroll-reports" style="display: none;">
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Payroll Summary</h3>
+                                <button class="report-action" data-report="payroll-summary">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Monthly payroll totals and breakdowns</p>
+                            <div class="report-stats">
+                                <span>Last generated: 1 day ago</span>
+                                <span>$485,600 total</span>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Salary Analysis</h3>
+                                <button class="report-action" data-report="salary-analysis">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Salary distribution and compensation analysis</p>
+                            <div class="report-stats">
+                                <span>Last generated: 3 days ago</span>
+                                <span>$3,420 avg salary</span>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Tax Report</h3>
+                                <button class="report-action" data-report="tax-report">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Tax deductions and compliance reporting</p>
+                            <div class="report-stats">
+                                <span>Last generated: 1 week ago</span>
+                                <span>$97,120 total tax</span>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Benefits Report</h3>
+                                <button class="report-action" data-report="benefits-report">
+                                    <span>📄</span>
+                                    Generate
+                                </button>
+                            </div>
+                            <p>Employee benefits utilization and costs</p>
+                            <div class="report-stats">
+                                <span>Last generated: 5 days ago</span>
+                                <span>$45,200 benefits</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Recent Reports 
+                <div class="recent-reports">
+                    <h3>Recent Reports</h3>
+                    <div class="recent-reports-list">
+                        <div class="recent-report-item">
+                            <div class="report-info">
+                                <span class="report-name">Monthly Attendance Report</span>
+                                <span class="report-date">Generated on March 15, 2024</span>
+                            </div>
+                            <div class="report-actions">
+                                <button class="btn-icon" title="Download">📥</button>
+                                <button class="btn-icon" title="View">👁️</button>
+                                <button class="btn-icon" title="Share">📤</button>
+                            </div>
+                        </div>
+                        
+                        <div class="recent-report-item">
+                            <div class="report-info">
+                                <span class="report-name">Payroll Summary - March 2024</span>
+                                <span class="report-date">Generated on March 14, 2024</span>
+                            </div>
+                            <div class="report-actions">
+                                <button class="btn-icon" title="Download">📥</button>
+                                <button class="btn-icon" title="View">👁️</button>
+                                <button class="btn-icon" title="Share">📤</button>
+                            </div>
+                        </div>
+                        
+                        <div class="recent-report-item">
+                            <div class="report-info">
+                                <span class="report-name">Employee Directory</span>
+                                <span class="report-date">Generated on March 13, 2024</span>
+                            </div>
+                            <div class="report-actions">
+                                <button class="btn-icon" title="Download">📥</button>
+                                <button class="btn-icon" title="View">👁️</button>
+                                <button class="btn-icon" title="Share">📤</button>
+                            </div>
+                        </div>
+                        
+                        <div class="recent-report-item">
+                            <div class="report-info">
+                                <span class="report-name">Department Analysis Q1</span>
+                                <span class="report-date">Generated on March 10, 2024</span>
+                            </div>
+                            <div class="report-actions">
+                                <button class="btn-icon" title="Download">📥</button>
+                                <button class="btn-icon" title="View">👁️</button>
+                                <button class="btn-icon" title="Share">📤</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="settings-section" class="content-section">
+                 Replaced placeholder with comprehensive settings section 
+                <div class="section-header">
+                    <h2>System Settings</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary" id="exportSettingsBtn">
+                            <span>📤</span>
+                            Export Settings
+                        </button>
+                        <button class="btn btn-primary" id="saveSettingsBtn">
+                            <span>💾</span>
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+                
+                 Settings Navigation 
+                <div class="settings-nav">
+                    <button class="settings-nav-btn active" data-settings="general">
+                        <span>⚙️</span>
+                        General
+                    </button>
+                    <button class="settings-nav-btn" data-settings="company">
+                        <span>🏢</span>
+                        Company
+                    </button>
+                    <button class="settings-nav-btn" data-settings="users">
+                        <span>👥</span>
+                        Users & Roles
+                    </button>
+                    <button class="settings-nav-btn" data-settings="payroll">
+                        <span>💰</span>
+                        Payroll
+                    </button>
+                    <button class="settings-nav-btn" data-settings="attendance">
+                        <span>📅</span>
+                        Attendance
+                    </button>
+                    <button class="settings-nav-btn" data-settings="notifications">
+                        <span>🔔</span>
+                        Notifications
+                    </button>
+                    <button class="settings-nav-btn" data-settings="security">
+                        <span>🔒</span>
+                        Security
+                    </button>
+                    <button class="settings-nav-btn" data-settings="backup">
+                        <span>💾</span>
+                        Backup
+                    </button>
+                </div>
+                
+                 General Settings 
+                <div class="settings-content" id="general-settings">
+                    <div class="settings-section">
+                        <h3>Application Settings</h3>
+                        <div class="settings-grid">
+                            <div class="setting-item">
+                                <label for="appName">Application Name</label>
+                                <input type="text" id="appName" value="DreamHR" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="appVersion">Version</label>
+                                <input type="text" id="appVersion" value="1.0.0" class="setting-input" readonly>
+                            </div>
+                            <div class="setting-item">
+                                <label for="timezone">Default Timezone</label>
+                                <select id="timezone" class="setting-select">
+                                    <option value="UTC">UTC</option>
+                                    <option value="America/New_York">Eastern Time</option>
+                                    <option value="America/Chicago">Central Time</option>
+                                    <option value="America/Denver">Mountain Time</option>
+                                    <option value="America/Los_Angeles" selected>Pacific Time</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label for="dateFormat">Date Format</label>
+                                <select id="dateFormat" class="setting-select">
+                                    <option value="MM/DD/YYYY" selected>MM/DD/YYYY</option>
+                                    <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                                    <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label for="currency">Default Currency</label>
+                                <select id="currency" class="setting-select">
+                                    <option value="USD" selected>USD ($)</option>
+                                    <option value="EUR">EUR (€)</option>
+                                    <option value="GBP">GBP (£)</option>
+                                    <option value="CAD">CAD (C$)</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label for="language">Language</label>
+                                <select id="language" class="setting-select">
+                                    <option value="en" selected>English</option>
+                                    <option value="es">Spanish</option>
+                                    <option value="fr">French</option>
+                                    <option value="de">German</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Display Settings</h3>
+                        <div class="settings-grid">
+                            <div class="setting-item">
+                                <label class="setting-label">Theme</label>
+                                <div class="radio-group">
+                                    <label class="radio-container">
+                                        <input type="radio" name="theme" value="light" checked>
+                                        <span class="radio-mark"></span>
+                                        Light
+                                    </label>
+                                    <label class="radio-container">
+                                        <input type="radio" name="theme" value="dark">
+                                        <span class="radio-mark"></span>
+                                        Dark
+                                    </label>
+                                    <label class="radio-container">
+                                        <input type="radio" name="theme" value="auto">
+                                        <span class="radio-mark"></span>
+                                        Auto
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="setting-item">
+                                <label for="recordsPerPage">Records Per Page</label>
+                                <select id="recordsPerPage" class="setting-select">
+                                    <option value="10">10</option>
+                                    <option value="25" selected>25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Company Settings 
+                <div class="settings-content" id="company-settings" style="display: none;">
+                    <div class="settings-section">
+                        <h3>Company Information</h3>
+                        <div class="settings-grid">
+                            <div class="setting-item">
+                                <label for="companyName">Company Name</label>
+                                <input type="text" id="companyName" value="Dream Corporation" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="companyEmail">Company Email</label>
+                                <input type="email" id="companyEmail" value="info@dreamcorp.com" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="companyPhone">Company Phone</label>
+                                <input type="tel" id="companyPhone" value="+1 (555) 123-4567" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="companyWebsite">Website</label>
+                                <input type="url" id="companyWebsite" value="https://dreamcorp.com" class="setting-input">
+                            </div>
+                            <div class="setting-item full-width">
+                                <label for="companyAddress">Company Address</label>
+                                <textarea id="companyAddress" rows="3" class="setting-textarea">123 Business Ave, Suite 100
+San Francisco, CA 94105
+United States</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Business Settings</h3>
+                        <div class="settings-grid">
+                            <div class="setting-item">
+                                <label for="fiscalYearStart">Fiscal Year Start</label>
+                                <select id="fiscalYearStart" class="setting-select">
+                                    <option value="01" selected>January</option>
+                                    <option value="04">April</option>
+                                    <option value="07">July</option>
+                                    <option value="10">October</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label for="workingDays">Working Days Per Week</label>
+                                <select id="workingDays" class="setting-select">
+                                    <option value="5" selected>5 Days</option>
+                                    <option value="6">6 Days</option>
+                                    <option value="7">7 Days</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label for="workingHours">Working Hours Per Day</label>
+                                <input type="number" id="workingHours" value="8" min="1" max="24" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="employeeIdPrefix">Employee ID Prefix</label>
+                                <input type="text" id="employeeIdPrefix" value="EMP" class="setting-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Users & Roles Settings 
+                <div class="settings-content" id="users-settings" style="display: none;">
+                    <div class="settings-section">
+                        <h3>User Management</h3>
+                        <div class="settings-grid">
+                            <div class="setting-item">
+                                <label class="setting-label">User Registration</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="allowRegistration" checked>
+                                    <label for="allowRegistration" class="toggle-label">Allow new user registration</label>
+                                </div>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">Email Verification</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="requireEmailVerification" checked>
+                                    <label for="requireEmailVerification" class="toggle-label">Require email verification</label>
+                                </div>
+                            </div>
+                            <div class="setting-item">
+                                <label for="defaultRole">Default Role for New Users</label>
+                                <select id="defaultRole" class="setting-select">
+                                    <option value="employee" selected>Employee</option>
+                                    <option value="manager">Manager</option>
+                                    <option value="admin">Administrator</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label for="sessionTimeout">Session Timeout (minutes)</label>
+                                <input type="number" id="sessionTimeout" value="60" min="5" max="480" class="setting-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Role Permissions</h3>
+                        <div class="permissions-table">
+                            <div class="permissions-header">
+                                <span>Permission</span>
+                                <span>Employee</span>
+                                <span>Manager</span>
+                                <span>Admin</span>
+                            </div>
+                            <div class="permission-row">
+                                <span>View Employees</span>
+                                <input type="checkbox" checked disabled>
+                                <input type="checkbox" checked>
+                                <input type="checkbox" checked>
+                            </div>
+                            <div class="permission-row">
+                                <span>Add/Edit Employees</span>
+                                <input type="checkbox" disabled>
+                                <input type="checkbox" checked>
+                                <input type="checkbox" checked>
+                            </div>
+                            <div class="permission-row">
+                                <span>Delete Employees</span>
+                                <input type="checkbox" disabled>
+                                <input type="checkbox" disabled>
+                                <input type="checkbox" checked>
+                            </div>
+                            <div class="permission-row">
+                                <span>View Payroll</span>
+                                <input type="checkbox" disabled>
+                                <input type="checkbox" checked>
+                                <input type="checkbox" checked>
+                            </div>
+                            <div class="permission-row">
+                                <span>Process Payroll</span>
+                                <input type="checkbox" disabled>
+                                <input type="checkbox" disabled>
+                                <input type="checkbox" checked>
+                            </div>
+                            <div class="permission-row">
+                                <span>Generate Reports</span>
+                                <input type="checkbox" disabled>
+                                <input type="checkbox" checked>
+                                <input type="checkbox" checked>
+                            </div>
+                            <div class="permission-row">
+                                <span>System Settings</span>
+                                <input type="checkbox" disabled>
+                                <input type="checkbox" disabled>
+                                <input type="checkbox" checked>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Payroll Settings 
+                <div class="settings-content" id="payroll-settings" style="display: none;">
+                    <div class="settings-section">
+                        <h3>Payroll Configuration</h3>
+                        <div class="settings-grid">
+                            <div class="setting-item">
+                                <label for="payrollFrequency">Payroll Frequency</label>
+                                <select id="payrollFrequency" class="setting-select">
+                                    <option value="weekly">Weekly</option>
+                                    <option value="biweekly">Bi-weekly</option>
+                                    <option value="monthly" selected>Monthly</option>
+                                    <option value="quarterly">Quarterly</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label for="payrollDay">Payroll Day</label>
+                                <select id="payrollDay" class="setting-select">
+                                    <option value="1">1st of month</option>
+                                    <option value="15">15th of month</option>
+                                    <option value="last" selected>Last day of month</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label for="overtimeRate">Overtime Rate (%)</label>
+                                <input type="number" id="overtimeRate" value="150" min="100" max="300" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="overtimeThreshold">Overtime Threshold (hours)</label>
+                                <input type="number" id="overtimeThreshold" value="40" min="1" max="80" class="setting-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Tax & Deductions</h3>
+                        <div class="settings-grid">
+                            <div class="setting-item">
+                                <label for="incomeTaxRate">Income Tax Rate (%)</label>
+                                <input type="number" id="incomeTaxRate" value="20" min="0" max="50" step="0.1" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="socialSecurityRate">Social Security Rate (%)</label>
+                                <input type="number" id="socialSecurityRate" value="6.2" min="0" max="15" step="0.1" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="medicareRate">Medicare Rate (%)</label>
+                                <input type="number" id="medicareRate" value="1.45" min="0" max="5" step="0.01" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="providentFundRate">Provident Fund Rate (%)</label>
+                                <input type="number" id="providentFundRate" value="12" min="0" max="25" step="0.1" class="setting-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Attendance Settings 
+                <div class="settings-content" id="attendance-settings" style="display: none;">
+                    <div class="settings-section">
+                        <h3>Attendance Rules</h3>
+                        <div class="settings-grid">
+                            <div class="setting-item">
+                                <label for="workStartTime">Work Start Time</label>
+                                <input type="time" id="workStartTime" value="09:00" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="workEndTime">Work End Time</label>
+                                <input type="time" id="workEndTime" value="17:00" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="lateThreshold">Late Threshold (minutes)</label>
+                                <input type="number" id="lateThreshold" value="15" min="1" max="60" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="breakDuration">Break Duration (minutes)</label>
+                                <input type="number" id="breakDuration" value="60" min="15" max="120" class="setting-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Leave Policies</h3>
+                        <div class="settings-grid">
+                            <div class="setting-item">
+                                <label for="annualLeave">Annual Leave Days</label>
+                                <input type="number" id="annualLeave" value="20" min="0" max="50" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="sickLeave">Sick Leave Days</label>
+                                <input type="number" id="sickLeave" value="10" min="0" max="30" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="personalLeave">Personal Leave Days</label>
+                                <input type="number" id="personalLeave" value="5" min="0" max="20" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">Carry Forward Leave</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="carryForwardLeave" checked>
+                                    <label for="carryForwardLeave" class="toggle-label">Allow carry forward to next year</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Notification Settings 
+                <div class="settings-content" id="notifications-settings" style="display: none;">
+                    <div class="settings-section">
+                        <h3>Email Notifications</h3>
+                        <div class="settings-grid">
+                            <div class="setting-item">
+                                <label class="setting-label">New Employee Registration</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="notifyNewEmployee" checked>
+                                    <label for="notifyNewEmployee" class="toggle-label">Send notification</label>
+                                </div>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">Payroll Processing</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="notifyPayroll" checked>
+                                    <label for="notifyPayroll" class="toggle-label">Send notification</label>
+                                </div>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">Leave Requests</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="notifyLeaveRequest" checked>
+                                    <label for="notifyLeaveRequest" class="toggle-label">Send notification</label>
+                                </div>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">Attendance Alerts</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="notifyAttendance" checked>
+                                    <label for="notifyAttendance" class="toggle-label">Send notification</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Email Configuration</h3>
+                        <div class="settings-grid">
+                            <div class="setting-item">
+                                <label for="smtpServer">SMTP Server</label>
+                                <input type="text" id="smtpServer" value="smtp.gmail.com" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="smtpPort">SMTP Port</label>
+                                <input type="number" id="smtpPort" value="587" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="smtpUsername">SMTP Username</label>
+                                <input type="email" id="smtpUsername" value="noreply@dreamcorp.com" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="smtpPassword">SMTP Password</label>
+                                <input type="password" id="smtpPassword" value="••••••••" class="setting-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Security Settings 
+                <div class="settings-content" id="security-settings" style="display: none;">
+                    <div class="settings-section">
+                        <h3>Password Policy</h3>
+                        <div class="settings-grid">
+                            <div class="setting-item">
+                                <label for="minPasswordLength">Minimum Password Length</label>
+                                <input type="number" id="minPasswordLength" value="8" min="6" max="20" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">Require Uppercase</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="requireUppercase" checked>
+                                    <label for="requireUppercase" class="toggle-label">Require uppercase letters</label>
+                                </div>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">Require Numbers</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="requireNumbers" checked>
+                                    <label for="requireNumbers" class="toggle-label">Require numbers</label>
+                                </div>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">Require Special Characters</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="requireSpecialChars" checked>
+                                    <label for="requireSpecialChars" class="toggle-label">Require special characters</label>
+                                </div>
+                            </div>
+                            <div class="setting-item">
+                                <label for="passwordExpiry">Password Expiry (days)</label>
+                                <input type="number" id="passwordExpiry" value="90" min="30" max="365" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="maxLoginAttempts">Max Login Attempts</label>
+                                <input type="number" id="maxLoginAttempts" value="5" min="3" max="10" class="setting-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Two-Factor Authentication</h3>
+                        <div class="settings-grid">
+                            <div class="setting-item">
+                                <label class="setting-label">Enable 2FA</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="enable2FA">
+                                    <label for="enable2FA" class="toggle-label">Enable two-factor authentication</label>
+                                </div>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">Require 2FA for Admins</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="require2FAAdmin" checked>
+                                    <label for="require2FAAdmin" class="toggle-label">Require 2FA for administrators</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 Backup Settings 
+                <div class="settings-content" id="backup-settings" style="display: none;">
+                    <div class="settings-section">
+                        <h3>Backup Configuration</h3>
+                        <div class="settings-grid">
+                            <div class="setting-item">
+                                <label class="setting-label">Automatic Backups</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="autoBackup" checked>
+                                    <label for="autoBackup" class="toggle-label">Enable automatic backups</label>
+                                </div>
+                            </div>
+                            <div class="setting-item">
+                                <label for="backupFrequency">Backup Frequency</label>
+                                <select id="backupFrequency" class="setting-select">
+                                    <option value="daily" selected>Daily</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="monthly">Monthly</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label for="backupTime">Backup Time</label>
+                                <input type="time" id="backupTime" value="02:00" class="setting-input">
+                            </div>
+                            <div class="setting-item">
+                                <label for="retentionPeriod">Retention Period (days)</label>
+                                <input type="number" id="retentionPeriod" value="30" min="7" max="365" class="setting-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Backup Actions</h3>
+                        <div class="backup-actions">
+                            <button class="btn btn-primary" id="createBackupBtn">
+                                <span>💾</span>
+                                Create Backup Now
+                            </button>
+                            <button class="btn btn-secondary" id="restoreBackupBtn">
+                                <span>🔄</span>
+                                Restore from Backup
+                            </button>
+                            <button class="btn btn-secondary" id="downloadBackupBtn">
+                                <span>📥</span>
+                                Download Latest Backup
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Recent Backups</h3>
+                        <div class="backup-list">
+                            <div class="backup-item">
+                                <div class="backup-info">
+                                    <span class="backup-name">Full Backup - March 15, 2024</span>
+                                    <span class="backup-size">245 MB</span>
+                                    <span class="backup-status success">Completed</span>
+                                </div>
+                                <div class="backup-actions">
+                                    <button class="btn-icon" title="Download">📥</button>
+                                    <button class="btn-icon" title="Restore">🔄</button>
+                                    <button class="btn-icon" title="Delete">🗑️</button>
+                                </div>
+                            </div>
+                            <div class="backup-item">
+                                <div class="backup-info">
+                                    <span class="backup-name">Full Backup - March 14, 2024</span>
+                                    <span class="backup-size">243 MB</span>
+                                    <span class="backup-status success">Completed</span>
+                                </div>
+                                <div class="backup-actions">
+                                    <button class="btn-icon" title="Download">📥</button>
+                                    <button class="btn-icon" title="Restore">🔄</button>
+                                    <button class="btn-icon" title="Delete">🗑️</button>
+                                </div>
+                            </div>
+                            <div class="backup-item">
+                                <div class="backup-info">
+                                    <span class="backup-name">Full Backup - March 13, 2024</span>
+                                    <span class="backup-size">241 MB</span>
+                                    <span class="backup-status success">Completed</span>
+                                </div>
+                                <div class="backup-actions">
+                                    <button class="btn-icon" title="Download">📥</button>
+                                    <button class="btn-icon" title="Restore">🔄</button>
+                                    <button class="btn-icon" title="Delete">🗑️</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+     Add Employee Modal 
+    <div id="addEmployeeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Employee</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="addEmployeeForm" class="modal-form">
+                 Combined name field like in registration 
+                <div class="form-group">
+                    <label for="empName">Full Name</label>
+                    <input type="text" id="empName" required>
+                    <span class="input-focus"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="empEmail">Email Address</label>
+                    <input type="email" id="empEmail" required>
+                    <span class="input-focus"></span>
+                </div>
+
+                 Added phone number field 
+                <div class="form-group">
+                    <label for="empPhone">Phone Number</label>
+                    <input type="tel" id="empPhone" required>
+                    <span class="input-focus"></span>
+                </div>
+
+                 Added address field 
+                <div class="form-group">
+                    <label for="empAddress">Address</label>
+                    <textarea id="empAddress" rows="3" required></textarea>
+                    <span class="input-focus"></span>
+                </div>
+
+                 Added gender selection with radio buttons 
+                <div class="form-group">
+                    <label class="field-label">Gender</label>
+                    <div class="radio-group">
+                        <label class="radio-container">
+                            <input type="radio" name="empGender" value="male" required>
+                            <span class="radio-mark"></span>
+                            Male
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="empGender" value="female" required>
+                            <span class="radio-mark"></span>
+                            Female
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="empGender" value="other" required>
+                            <span class="radio-mark"></span>
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+                 Added date of birth field (optional) 
+                <div class="form-group">
+                    <label for="empDateOfBirth">Date of Birth <span class="optional">(Optional)</span></label>
+                    <input type="date" id="empDateOfBirth">
+                    <span class="input-focus"></span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="empDepartment">Department</label>
+                        <select id="empDepartment" required>
+                            <option value="">Select Department</option>
+                            <option value="hr">Human Resources</option>
+                            <option value="it">Information Technology</option>
+                            <option value="finance">Finance</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="sales">Sales</option>
+                            <option value="operations">Operations</option>
+                        </select>
+                        <span class="input-focus"></span>
+                    </div>
+
+                     Added role dropdown 
+                    <div class="form-group">
+                        <label for="empRole">Role</label>
+                        <select id="empRole" required>
+                            <option value="">Select Role</option>
+                            <option value="manager">Manager</option>
+                            <option value="senior">Senior Employee</option>
+                            <option value="junior">Junior Employee</option>
+                            <option value="intern">Intern</option>
+                            <option value="contractor">Contractor</option>
+                        </select>
+                        <span class="input-focus"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="empPosition">Position</label>
+                        <input type="text" id="empPosition" required>
+                        <span class="input-focus"></span>
+                    </div>
+                    
+                     Updated salary field to match registration 
+                    <div class="form-group">
+                        <label for="empBasicSalary">Basic Salary</label>
+                        <input type="number" id="empBasicSalary" min="0" step="100" required>
+                        <span class="input-focus"></span>
+                    </div>
+                </div>
+
+                 Added profile photo upload (optional) 
+                <div class="form-group">
+                    <label for="empProfilePhoto">Profile Photo <span class="optional">(Optional)</span></label>
+                    <div class="file-upload-container">
+                        <input type="file" id="empProfilePhoto" accept="image/*" class="file-input">
+                        <label for="empProfilePhoto" class="file-upload-label">
+                            <span class="upload-icon">📷</span>
+                            <span class="upload-text">Choose photo or drag & drop</span>
+                        </label>
+                        <div class="file-preview" id="empFilePreview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="empStartDate">Start Date</label>
+                    <input type="date" id="empStartDate" required>
+                    <span class="input-focus"></span>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Employee</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+     Added Add Role Modal similar to Add Employee Modal 
+     Add Role Modal 
+    <div id="addRoleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Role</h3>
+                <button class="close-btn" id="closeRoleModal">&times;</button>
+            </div>
+            <form id="addRoleForm" class="modal-form">
+                <div class="form-group">
+                    <label for="roleName">Role Name</label>
+                    <input type="text" id="roleName" required>
+                    <span class="input-focus"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="roleDescription">Description</label>
+                    <textarea id="roleDescription" rows="3" required></textarea>
+                    <span class="input-focus"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="roleLevel">Role Level</label>
+                    <select id="roleLevel" required>
+                        <option value="">Select Level</option>
+                        <option value="executive">Executive</option>
+                        <option value="senior">Senior</option>
+                        <option value="mid">Mid-Level</option>
+                        <option value="junior">Junior</option>
+                        <option value="entry">Entry Level</option>
+                    </select>
+                    <span class="input-focus"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="roleDepartment">Department</label>
+                    <select id="roleDepartment" required>
+                        <option value="">Select Department</option>
+                        <option value="hr">Human Resources</option>
+                        <option value="it">Information Technology</option>
+                        <option value="finance">Finance</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="sales">Sales</option>
+                        <option value="operations">Operations</option>
+                        <option value="all">All Departments</option>
+                    </select>
+                    <span class="input-focus"></span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="roleMinSalary">Minimum Salary</label>
+                        <input type="number" id="roleMinSalary" min="0" step="1000" required>
+                        <span class="input-focus"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="roleMaxSalary">Maximum Salary</label>
+                        <input type="number" id="roleMaxSalary" min="0" step="1000" required>
+                        <span class="input-focus"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="field-label">Permissions</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="rolePermissions" value="read">
+                            <span class="checkbox-mark"></span>
+                            Read Access
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="rolePermissions" value="write">
+                            <span class="checkbox-mark"></span>
+                            Write Access
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="rolePermissions" value="delete">
+                            <span class="checkbox-mark"></span>
+                            Delete Access
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="rolePermissions" value="admin">
+                            <span class="checkbox-mark"></span>
+                            Admin Access
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="field-label">Status</label>
+                    <div class="radio-group">
+                        <label class="radio-container">
+                            <input type="radio" name="roleStatus" value="active" checked required>
+                            <span class="radio-mark"></span>
+                            Active
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="radio" name="roleStatus" value="inactive" required>
+                            <span class="radio-mark"></span>
+                            Inactive
+                        </label>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelRoleBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Role</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+     Added Employee Detail Modal after Add Role Modal 
+     Employee Detail Modal 
+    <div id="employeeDetailModal" class="modal">
+        <div class="modal-content employee-detail-content">
+            <div class="modal-header">
+                <h3>Employee Details</h3>
+                <button class="close-btn" id="closeEmployeeDetailModal">&times;</button>
+            </div>
+            <div class="employee-detail-body">
+                <div class="employee-profile-section">
+                    <div class="employee-profile-avatar" id="detailEmployeeAvatar">
+                         Avatar will be populated by JavaScript 
+                    </div>
+                    <div class="employee-profile-info">
+                        <h2 id="detailEmployeeName">Employee Name</h2>
+                        <p id="detailEmployeePosition">Position</p>
+                        <span class="employee-status active" id="detailEmployeeStatus">Active</span>
+                    </div>
+                </div>
+                
+                <div class="employee-detail-grid">
+                    <div class="detail-section">
+                        <h4>Personal Information</h4>
+                        <div class="detail-item">
+                            <span class="detail-label">Full Name:</span>
+                            <span class="detail-value" id="detailFullName">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Email:</span>
+                            <span class="detail-value" id="detailEmail">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Phone:</span>
+                            <span class="detail-value" id="detailPhone">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Address:</span>
+                            <span class="detail-value" id="detailAddress">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Gender:</span>
+                            <span class="detail-value" id="detailGender">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Date of Birth:</span>
+                            <span class="detail-value" id="detailDateOfBirth">-</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Work Information</h4>
+                        <div class="detail-item">
+                            <span class="detail-label">Department:</span>
+                            <span class="detail-value" id="detailDepartment">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Role:</span>
+                            <span class="detail-value" id="detailRole">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Position:</span>
+                            <span class="detail-value" id="detailPosition">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Basic Salary:</span>
+                            <span class="detail-value" id="detailSalary">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Start Date:</span>
+                            <span class="detail-value" id="detailStartDate">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Employee ID:</span>
+                            <span class="detail-value" id="detailEmployeeId">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="employee-actions">
+                    <button class="btn btn-primary" id="editEmployeeBtn">
+                        <span>✏️</span>
+                        Edit Employee
+                    </button>
+                    <button class="btn btn-secondary" id="deactivateEmployeeBtn">
+                        <span>🚫</span>
+                        Deactivate
+                    </button>
+                    <button class="btn btn-danger" id="deleteEmployeeBtn">
+                        <span>🗑️</span>
+                        Delete Employee
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+     Added Mark Attendance Modal after Employee Detail Modal 
+     Mark Attendance Modal 
+    <div id="markAttendanceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Mark Attendance</h3>
+                <button class="close-btn" id="closeAttendanceModal">&times;</button>
+            </div>
+            <form id="markAttendanceForm" class="modal-form">
+                <div class="form-group">
+                    <label for="attendanceEmployee">Employee</label>
+                    <select id="attendanceEmployee" required>
+                        <option value="">Select Employee</option>
+                         Options will be populated by JavaScript 
+                    </select>
+                    <span class="input-focus"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="attendanceDate">Date</label>
+                    <input type="date" id="attendanceDate" required>
+                    <span class="input-focus"></span>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkInTime">Check In Time</label>
+                        <input type="time" id="checkInTime" required>
+                        <span class="input-focus"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="checkOutTime">Check Out Time</label>
+                        <input type="time" id="checkOutTime">
+                        <span class="input-focus"></span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="field-label">Status</label>
+                    <div class="radio-group">
+                        <label class="radio-container">
+                            <input type="radio" name="attendanceStatus" value="present" checked required>
+                            <span class="radio-mark"></span>
+                            Present
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="attendanceStatus" value="absent" required>
+                            <span class="radio-mark"></span>
+                            Absent
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="attendanceStatus" value="late" required>
+                            <span class="radio-mark"></span>
+                            Late
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="attendanceStatus" value="remote" required>
+                            <span class="radio-mark"></span>
+                            Remote
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="attendanceNotes">Notes (Optional)</label>
+                    <textarea id="attendanceNotes" rows="3" placeholder="Add any additional notes..."></textarea>
+                    <span class="input-focus"></span>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelAttendanceBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Mark Attendance</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+     Added Process Payroll Modal after Mark Attendance Modal 
+     Process Payroll Modal 
+    <div id="processPayrollModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Process Payroll</h3>
+                <button class="close-btn" id="closePayrollModal">&times;</button>
+            </div>
+            <form id="processPayrollForm" class="modal-form">
+                <div class="form-group">
+                    <label for="payrollMonth">Payroll Month</label>
+                    <input type="month" id="payrollMonth" required>
+                    <span class="input-focus"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="payrollDepartment">Department</label>
+                    <select id="payrollDepartment" required>
+                        <option value="">Select Department</option>
+                        <option value="all">All Departments</option>
+                        <option value="hr">Human Resources</option>
+                        <option value="it">Information Technology</option>
+                        <option value="finance">Finance</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="sales">Sales</option>
+                        <option value="operations">Operations</option>
+                    </select>
+                    <span class="input-focus"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label class="field-label">Payroll Components</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="payrollComponents" value="basic" checked>
+                            <span class="checkbox-mark"></span>
+                            Basic Salary
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="payrollComponents" value="allowances" checked>
+                            <span class="checkbox-mark"></span>
+                            Allowances
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="payrollComponents" value="overtime" checked>
+                            <span class="checkbox-mark"></span>
+                            Overtime
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="payrollComponents" value="bonus">
+                            <span class="checkbox-mark"></span>
+                            Bonus
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="field-label">Deductions</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="payrollDeductions" value="tax" checked>
+                            <span class="checkbox-mark"></span>
+                            Income Tax
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="payrollDeductions" value="insurance" checked>
+                            <span class="checkbox-mark"></span>
+                            Insurance
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="payrollDeductions" value="provident" checked>
+                            <span class="checkbox-mark"></span>
+                            Provident Fund
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="payrollDeductions" value="loan">
+                            <span class="checkbox-mark"></span>
+                            Loan Deduction
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="payrollNotes">Processing Notes</label>
+                    <textarea id="payrollNotes" rows="3" placeholder="Add any processing notes..."></textarea>
+                    <span class="input-focus"></span>
+                </div>
+                
+                <div class="payroll-preview">
+                    <h4>Payroll Preview</h4>
+                    <div class="preview-stats">
+                        <div class="preview-item">
+                            <span>Employees to Process:</span>
+                            <span id="previewEmployeeCount">-</span>
+                        </div>
+                        <div class="preview-item">
+                            <span>Estimated Total:</span>
+                            <span id="previewTotal">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelPayrollBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Process Payroll</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="public/assets/js/dashboard.js"></script>
+</body>
+</html>
