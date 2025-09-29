@@ -9,9 +9,55 @@ document.addEventListener("DOMContentLoaded", () => {
   setupAttendanceSection()
   updateDateTime()
 
+  // Add Asset button
+  const addAssetBtn = document.getElementById("addAssetBtn")
+  if (addAssetBtn) {
+    addAssetBtn.addEventListener("click", () => {
+      openModal("addAssetModal")
+    })
+  }
+
+  // Add Department button
+  const addDepartmentBtn = document.getElementById("addDepartmentBtn")
+  if (addDepartmentBtn) {
+    addDepartmentBtn.addEventListener("click", () => {
+      openModal("addDepartmentModal")
+    })
+  }
+
+  // Add Asset form submission
+  const addAssetForm = document.getElementById("addAssetForm")
+  if (addAssetForm) {
+    addAssetForm.addEventListener("submit", function (e) {
+      e.preventDefault()
+      const formData = new FormData(this)
+      const assetData = Object.fromEntries(formData)
+      console.log("[v0] Adding new asset:", assetData)
+      showNotification("Asset added successfully!", "success")
+      closeModal("addAssetModal")
+      this.reset()
+    })
+  }
+
+  // Add Department form submission
+  const addDepartmentForm = document.getElementById("addDepartmentForm")
+  if (addDepartmentForm) {
+    addDepartmentForm.addEventListener("submit", function (e) {
+      e.preventDefault()
+      const formData = new FormData(this)
+      const departmentData = Object.fromEntries(formData)
+      console.log("[v0] Adding new department:", departmentData)
+      showNotification("Department added successfully!", "success")
+      closeModal("addDepartmentModal")
+      this.reset()
+    })
+  }
+
   // Update date every minute
   setInterval(updateDateTime, 60000)
 })
+
+console.log("[v0] Dashboard script loaded")
 
 let currentPage = 1
 const employeesPerPage = 6
@@ -1580,10 +1626,18 @@ function setupPayrollSection() {
 function setupPayrollTabs() {
   console.log("[v0] Setting up payroll tabs")
   const tabButtons = document.querySelectorAll(".payroll-tabs .tab-btn")
-  const tabContents = document.querySelectorAll(".payroll-section .tab-content")
+  const tabContents = document.querySelectorAll("#payroll-section .tab-content")
 
   console.log("[v0] Found payroll tab buttons:", tabButtons.length)
   console.log("[v0] Found payroll tab contents:", tabContents.length)
+
+  // Debug: Log all found elements
+  tabButtons.forEach((btn, index) => {
+    console.log(`[v0] Tab button ${index}:`, btn.dataset.tab, btn)
+  })
+  tabContents.forEach((content, index) => {
+    console.log(`[v0] Tab content ${index}:`, content.id, content)
+  })
 
   tabButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -1602,23 +1656,32 @@ function setupPayrollTabs() {
       if (targetContent) {
         targetContent.classList.add("active")
         console.log("[v0] Activated payroll tab:", targetTab)
+
+        // Show success message
+        showNotification(`Switched to ${targetTab.replace("-", " ")} view`, "success")
       } else {
         console.log("[v0] Payroll tab content not found for:", targetTab)
+        console.log("[v0] Looking for element with ID:", `${targetTab}-tab`)
       }
 
       // Initialize specific tab content
       switch (targetTab) {
+        case "overview":
+          console.log("[v0] Initializing overview tab")
+          // No special initialization needed for overview, just show success
+          showNotification("Overview loaded successfully!", "success")
+          break
         case "employee-payroll":
           console.log("[v0] Initializing employee payroll")
-          initializeEmployeePayroll()
+          setTimeout(() => initializeEmployeePayroll(), 100)
           break
         case "department-payroll":
           console.log("[v0] Initializing department payroll")
-          initializeDepartmentPayroll()
+          setTimeout(() => initializeDepartmentPayroll(), 100)
           break
         case "building-reports":
           console.log("[v0] Initializing building reports")
-          initializeBuildingReports()
+          setTimeout(() => initializeBuildingReports(), 100)
           break
         default:
           console.log("[v0] No special initialization for payroll tab:", targetTab)
@@ -1626,15 +1689,37 @@ function setupPayrollTabs() {
     })
   })
 
-  // Set first tab as active
-  const firstTabButton = document.querySelector(".payroll-tabs .tab-btn[data-tab='overview']")
-  const firstTabContent = document.getElementById("overview-tab")
+  // Set first tab as active by default
+  setTimeout(() => {
+    const firstTabButton = document.querySelector(".payroll-tabs .tab-btn[data-tab='overview']")
+    const firstTabContent = document.getElementById("overview-tab")
 
-  if (firstTabButton && firstTabContent) {
-    firstTabButton.classList.add("active")
-    firstTabContent.classList.add("active")
-    console.log("[v0] Set payroll overview tab as default active")
-  }
+    console.log("[v0] Setting default overview tab")
+    console.log("[v0] Overview button found:", !!firstTabButton)
+    console.log("[v0] Overview content found:", !!firstTabContent)
+
+    if (firstTabButton && firstTabContent) {
+      // Remove active from all first
+      tabButtons.forEach((btn) => btn.classList.remove("active"))
+      tabContents.forEach((content) => content.classList.remove("active"))
+
+      // Then add active to overview
+      firstTabButton.classList.add("active")
+      firstTabContent.classList.add("active")
+      console.log("[v0] Set payroll overview tab as default active")
+    } else {
+      console.log("[v0] Could not find overview tab elements")
+      console.log("[v0] First tab button:", firstTabButton)
+      console.log("[v0] First tab content:", firstTabContent)
+
+      // Fallback: activate first available tab
+      if (tabButtons.length > 0 && tabContents.length > 0) {
+        tabButtons[0].classList.add("active")
+        tabContents[0].classList.add("active")
+        console.log("[v0] Activated first available tab as fallback")
+      }
+    }
+  }, 50)
 }
 
 function setupPayrollCharts() {
@@ -1657,74 +1742,136 @@ function setupPayrollCharts() {
 function initializeEmployeePayroll() {
   console.log("[v0] Initializing employee payroll")
   loadEmployeePayrollData()
-  initializeEmployeePayrollCharts()
+  setTimeout(() => {
+    initializeEmployeePayrollCharts()
+  }, 100)
 }
 
 function initializeDepartmentPayroll() {
   console.log("[v0] Initializing department payroll")
-  initializeDepartmentPayrollCharts()
+  setTimeout(() => {
+    initializeDepartmentPayrollCharts()
+    showNotification("Department payroll data loaded successfully!", "success")
+  }, 100)
 }
 
 function initializeBuildingReports() {
   console.log("[v0] Initializing building reports")
-  initializeBuildingReportsCharts()
+  setTimeout(() => {
+    initializeBuildingReportsCharts()
+    showNotification("Organization-wide reports loaded successfully!", "success")
+  }, 100)
 }
 
 function loadEmployeePayrollData() {
-  const employees = getEmployees()
+  console.log("[v0] Loading employee payroll data")
   const employeePayrollGrid = document.getElementById("employeePayrollGrid")
 
-  if (!employeePayrollGrid) {
-    console.log("[v0] Employee payroll grid not found")
-    return
-  }
+  if (employeePayrollGrid) {
+    // Sample employee payroll data
+    const employees = [
+      {
+        id: 1,
+        name: "John Smith",
+        department: "IT",
+        basicSalary: 8500,
+        allowances: 1200,
+        deductions: 850,
+        netSalary: 8850,
+        status: "Processed",
+      },
+      {
+        id: 2,
+        name: "Sarah Johnson",
+        department: "HR",
+        basicSalary: 6500,
+        allowances: 800,
+        deductions: 650,
+        netSalary: 6650,
+        status: "Processed",
+      },
+      {
+        id: 3,
+        name: "Mike Davis",
+        department: "Marketing",
+        basicSalary: 5800,
+        allowances: 600,
+        deductions: 580,
+        netSalary: 5820,
+        status: "Pending",
+      },
+      {
+        id: 4,
+        name: "Lisa Wilson",
+        department: "Finance",
+        basicSalary: 7200,
+        allowances: 900,
+        deductions: 720,
+        netSalary: 7380,
+        status: "Processed",
+      },
+      {
+        id: 5,
+        name: "David Brown",
+        department: "Sales",
+        basicSalary: 4500,
+        allowances: 500,
+        deductions: 450,
+        netSalary: 4550,
+        status: "Processed",
+      },
+      {
+        id: 6,
+        name: "Emma Taylor",
+        department: "Operations",
+        basicSalary: 3800,
+        allowances: 400,
+        deductions: 380,
+        netSalary: 3820,
+        status: "Pending",
+      },
+    ]
 
-  const payrollCards = employees
-    .map((employee) => {
-      const basicSalary = employee.basicSalary || employee.salary || 0
-      const allowances = Math.round(basicSalary * 0.15) // 15% allowances
-      const deductions = Math.round(basicSalary * 0.08) // 8% deductions
-      const netSalary = basicSalary + allowances - deductions
-
-      return `
-      <div class="employee-payroll-card" data-employee-id="${employee.id}">
-        <div class="employee-payroll-header-card">
-          <div class="employee-avatar-payroll">
-            ${getInitials(employee.name || `${employee.firstName} ${employee.lastName}`)}
+    employeePayrollGrid.innerHTML = employees
+      .map(
+        (emp) => `
+      <div class="employee-payroll-card">
+        <div class="emp-payroll-header">
+          <h4>${emp.name}</h4>
+          <span class="dept-badge ${emp.department.toLowerCase()}">${emp.department}</span>
+        </div>
+        <div class="emp-payroll-details">
+          <div class="payroll-detail">
+            <span>Basic Salary:</span>
+            <span class="amount">$${emp.basicSalary.toLocaleString()}</span>
           </div>
-          <div class="employee-payroll-info">
-            <h4>${employee.name || `${employee.firstName} ${employee.lastName}`}</h4>
-            <p>${employee.position || "Employee"} • ${formatDepartment(employee.department)}</p>
+          <div class="payroll-detail">
+            <span>Allowances:</span>
+            <span class="amount positive">+$${emp.allowances.toLocaleString()}</span>
+          </div>
+          <div class="payroll-detail">
+            <span>Deductions:</span>
+            <span class="amount negative">-$${emp.deductions.toLocaleString()}</span>
+          </div>
+          <div class="payroll-detail total">
+            <span>Net Salary:</span>
+            <span class="amount">$${emp.netSalary.toLocaleString()}</span>
+          </div>
+          <div class="payroll-status">
+            <span class="status-badge ${emp.status.toLowerCase()}">${emp.status}</span>
           </div>
         </div>
-        <div class="payroll-details">
-          <div class="payroll-detail-item">
-            <span class="label">Basic Salary:</span>
-            <span class="value">$${basicSalary.toLocaleString()}</span>
-          </div>
-          <div class="payroll-detail-item">
-            <span class="label">Allowances:</span>
-            <span class="value positive">+$${allowances.toLocaleString()}</span>
-          </div>
-          <div class="payroll-detail-item">
-            <span class="label">Deductions:</span>
-            <span class="value negative">-$${deductions.toLocaleString()}</span>
-          </div>
-          <div class="payroll-detail-item">
-            <span class="label">Net Salary:</span>
-            <span class="value">$${netSalary.toLocaleString()}</span>
-          </div>
-          <div class="payroll-detail-item">
-            <span class="label">Status:</span>
-            <span class="value positive">Processed</span>
-          </div>
+        <div class="emp-payroll-actions">
+          <button class="btn btn-sm btn-secondary" onclick="viewPayslip(${emp.id})">View Payslip</button>
+          <button class="btn btn-sm btn-primary" onclick="processPayroll(${emp.id})">Process</button>
         </div>
       </div>
-    `
-    })
-    .join("")
+    `,
+      )
+      .join("")
 
-  employeePayrollGrid.innerHTML = payrollCards
+    console.log("[v0] Employee payroll data loaded")
+  }
 }
 
 function initializeEmployeePayrollCharts() {
@@ -2079,4 +2226,58 @@ function generateSamplePayrollData() {
   })
 
   return payrollData
+}
+
+function approveLeave(button, action) {
+  const leaveCard = button.closest(".leave-card")
+  const statusElement = leaveCard.querySelector(".leave-status")
+  const actionsElement = leaveCard.querySelector(".leave-actions")
+
+  // Update status based on action
+  statusElement.className = `leave-status ${action}`
+
+  if (action === "approved") {
+    statusElement.textContent = "Approved"
+    showNotification("Leave request approved successfully!", "success")
+  } else if (action === "rejected") {
+    statusElement.textContent = "Rejected"
+    showNotification("Leave request rejected.", "error")
+  }
+
+  // Hide action buttons after decision
+  actionsElement.style.display = "none"
+
+  console.log(`[v0] Leave ${action} for employee`)
+}
+
+function approveCertification(button) {
+  const certCard = button.closest(".certification-card")
+  const statusElement = certCard.querySelector(".cert-status")
+  const actionsElement = certCard.querySelector(".cert-actions")
+
+  // Update status to approved
+  statusElement.className = "cert-status approved"
+  statusElement.textContent = "Approved"
+
+  // Hide approve button
+  actionsElement.style.display = "none"
+
+  showNotification("Certification approved successfully!", "success")
+  console.log("[v0] Certification approved")
+}
+
+// Helper function to open modals
+function openModal(modalId) {
+  const modal = document.getElementById(modalId)
+  if (modal) {
+    modal.classList.add("active")
+  }
+}
+
+// Helper function to close modals
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId)
+  if (modal) {
+    modal.classList.remove("active")
+  }
 }

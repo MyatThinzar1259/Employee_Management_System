@@ -437,6 +437,15 @@
                             <span>To: March 20, 2024</span>
                             <span>Duration: 5 days</span>
                         </div>
+                         Added approve and reject buttons for leave management 
+                        <div class="leave-actions">
+                            <button class="btn btn-approve" onclick="approveLeave(this, 'approved')">
+                                <span>✓</span> Approve
+                            </button>
+                            <button class="btn btn-reject" onclick="approveLeave(this, 'rejected')">
+                                <span>✗</span> Reject
+                            </button>
+                        </div>
                     </div>
                     <div class="leave-card">
                         <div class="leave-header">
@@ -450,6 +459,15 @@
                             <span>From: March 10, 2024</span>
                             <span>To: March 12, 2024</span>
                             <span>Duration: 2 days</span>
+                        </div>
+                         Added approve and reject buttons for leave management 
+                        <div class="leave-actions">
+                            <button class="btn btn-approve" onclick="approveLeave(this, 'approved')">
+                                <span>✓</span> Approve
+                            </button>
+                            <button class="btn btn-reject" onclick="approveLeave(this, 'rejected')">
+                                <span>✗</span> Reject
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -473,7 +491,13 @@
                             <span>Issued: Jan 2024</span>
                             <span>Expires: Jan 2027</span>
                         </div>
-                        <span class="cert-status valid">Valid</span>
+                         Changed status from valid to pending and added approve button 
+                        <span class="cert-status pending">Pending</span>
+                        <div class="cert-actions">
+                            <button class="btn btn-approve-cert" onclick="approveCertification(this)">
+                                <span>✓</span> Approve
+                            </button>
+                        </div>
                     </div>
                     <div class="certification-card">
                         <div class="cert-icon">📜</div>
@@ -483,7 +507,13 @@
                             <span>Issued: Dec 2023</span>
                             <span>Expires: Dec 2026</span>
                         </div>
-                        <span class="cert-status valid">Valid</span>
+                         Changed status from valid to pending and added approve button 
+                        <span class="cert-status pending">Pending</span>
+                        <div class="cert-actions">
+                            <button class="btn btn-approve-cert" onclick="approveCertification(this)">
+                                <span>✓</span> Approve
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -3153,6 +3183,157 @@ United States</textarea>
                 <div class="modal-actions">
                     <button type="button" class="btn btn-secondary" id="cancelPayrollBtn">Cancel</button>
                     <button type="submit" class="btn btn-primary">Process Payroll</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+     Adding Add Asset Modal 
+     Add Asset Modal 
+    <div id="addAssetModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Asset</h3>
+                <span class="close" onclick="closeModal('addAssetModal')">&times;</span>
+            </div>
+            <form id="addAssetForm" class="modal-form">
+                <div class="form-group">
+                    <label for="assetName">Asset Name</label>
+                    <input type="text" id="assetName" name="assetName" required>
+                </div>
+                <div class="form-group">
+                    <label for="assetType">Asset Type</label>
+                    <select id="assetType" name="assetType" required>
+                        <option value="">Select Type</option>
+                        <option value="laptop">Laptop</option>
+                        <option value="desktop">Desktop</option>
+                        <option value="monitor">Monitor</option>
+                        <option value="printer">Printer</option>
+                        <option value="phone">Phone</option>
+                        <option value="tablet">Tablet</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="assetBrand">Brand</label>
+                    <input type="text" id="assetBrand" name="assetBrand" required>
+                </div>
+                <div class="form-group">
+                    <label for="assetModel">Model</label>
+                    <input type="text" id="assetModel" name="assetModel" required>
+                </div>
+                <div class="form-group">
+                    <label for="assetSerial">Serial Number</label>
+                    <input type="text" id="assetSerial" name="assetSerial" required>
+                </div>
+                <div class="form-group">
+                    <label for="assetPurchaseDate">Purchase Date</label>
+                    <input type="date" id="assetPurchaseDate" name="assetPurchaseDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="assetPurchasePrice">Purchase Price</label>
+                    <input type="number" id="assetPurchasePrice" name="assetPurchasePrice" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="assetAssignedTo">Assigned To</label>
+                    <select id="assetAssignedTo" name="assetAssignedTo">
+                        <option value="">Unassigned</option>
+                        <option value="john-doe">John Doe</option>
+                        <option value="sarah-johnson">Sarah Johnson</option>
+                        <option value="mike-wilson">Mike Wilson</option>
+                        <option value="emily-brown">Emily Brown</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="assetLocation">Location</label>
+                    <input type="text" id="assetLocation" name="assetLocation" placeholder="e.g., Office Floor 2, Room 201">
+                </div>
+                <div class="form-group">
+                    <label for="assetStatus">Status</label>
+                    <select id="assetStatus" name="assetStatus" required>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="maintenance">Under Maintenance</option>
+                        <option value="retired">Retired</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="assetNotes">Notes</label>
+                    <textarea id="assetNotes" name="assetNotes" rows="3" placeholder="Additional notes about the asset"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addAssetModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Asset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+     Adding Add Department Modal 
+     Add Department Modal 
+    <div id="addDepartmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Department</h3>
+                <span class="close" onclick="closeModal('addDepartmentModal')">&times;</span>
+            </div>
+            <form id="addDepartmentForm" class="modal-form">
+                <div class="form-group">
+                    <label for="departmentName">Department Name</label>
+                    <input type="text" id="departmentName" name="departmentName" required>
+                </div>
+                <div class="form-group">
+                    <label for="departmentCode">Department Code</label>
+                    <input type="text" id="departmentCode" name="departmentCode" placeholder="e.g., IT, HR, MKT" required>
+                </div>
+                <div class="form-group">
+                    <label for="departmentHead">Department Head</label>
+                    <select id="departmentHead" name="departmentHead" required>
+                        <option value="">Select Department Head</option>
+                        <option value="john-smith">John Smith</option>
+                        <option value="sarah-wilson">Sarah Wilson</option>
+                        <option value="mike-johnson">Mike Johnson</option>
+                        <option value="emily-davis">Emily Davis</option>
+                        <option value="david-brown">David Brown</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="departmentBudget">Annual Budget</label>
+                    <input type="number" id="departmentBudget" name="departmentBudget" step="1000" required>
+                </div>
+                <div class="form-group">
+                    <label for="departmentLocation">Location</label>
+                    <input type="text" id="departmentLocation" name="departmentLocation" placeholder="e.g., Building A, Floor 3" required>
+                </div>
+                <div class="form-group">
+                    <label for="departmentPhone">Phone Extension</label>
+                    <input type="text" id="departmentPhone" name="departmentPhone" placeholder="e.g., 1234">
+                </div>
+                <div class="form-group">
+                    <label for="departmentEmail">Department Email</label>
+                    <input type="email" id="departmentEmail" name="departmentEmail" placeholder="e.g., dept@company.com">
+                </div>
+                <div class="form-group">
+                    <label for="departmentIcon">Department Icon</label>
+                    <select id="departmentIcon" name="departmentIcon" required>
+                        <option value="">Select Icon</option>
+                        <option value="💻">💻 Technology</option>
+                        <option value="👥">👥 Human Resources</option>
+                        <option value="📊">📊 Marketing</option>
+                        <option value="💰">💰 Finance</option>
+                        <option value="🏭">🏭 Operations</option>
+                        <option value="📞">📞 Customer Service</option>
+                        <option value="🔧">🔧 Maintenance</option>
+                        <option value="📚">📚 Training</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="departmentDescription">Description</label>
+                    <textarea id="departmentDescription" name="departmentDescription" rows="3" placeholder="Brief description of the department's role and responsibilities"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addDepartmentModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Department</button>
                 </div>
             </form>
         </div>
